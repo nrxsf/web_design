@@ -1,0 +1,59 @@
+<header class="header">
+  <div class="header__inner">
+    <a href="./index.html" class="header__brand" aria-label="DevForge Home">
+      <span class="header__logo-icon" aria-hidden="true">&lt;/&gt;</span>
+      <span class="header__logo-text" data-i18n="brand.name">DevForge</span>
+    </a>
+
+    <nav class="header__nav nav" aria-label="Main application navigation">
+      <ul class="nav__list">
+        <li class="nav__item">
+          <a href="./index.html" class="nav__link nav__link--active" data-i18n="nav.home">
+            <span class="nav__icon" aria-hidden="true">&#x2302;</span>
+            <span class="nav__text">Home</span>
+          </a>
+        </li>
+        <li class="nav__item">
+          <a href="./tools.html" class="nav__link" data-i18n="nav.tools">
+            <span class="nav__icon" aria-hidden="true">&#x1F527;</span>
+            <span class="nav__text">Tools</span>
+          </a>
+        </li>
+        <li class="nav__item">
+          <a href="./about.html" class="nav__link" data-i18n="nav.about">
+            <span class="nav__icon" aria-hidden="true">&#x2139;</span>
+            <span class="nav__text">About</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="header__actions">
+      <form class="header__search-form search-bar" role="search" action="./tools.html" method="get">
+        <label for="global-search" class="visually-hidden" data-i18n="search.label">Search tools</label>
+        <span class="search-bar__icon" aria-hidden="true">&#x1F50D;</span>
+        <input 
+          type="search" 
+          id="global-search" 
+          name="q" 
+          class="search-bar__input" 
+          placeholder="Filter dev tools, regex, enc..." 
+          data-i18n="search.placeholder"
+        >
+        <kbd class="search-bar__shortcut">Ctrl+K</kbd>
+      </form>
+
+      <div class="header__controls">
+        <button type="button" class="btn-icon" aria-label="Inspect components" title="Inspect">
+          <span aria-hidden="true">&lt;&gt;</span>
+        </button>
+        <button type="button" class="btn-icon" aria-label="Toggle theme" title="Toggle theme">
+          <span aria-hidden="true">&#x25D0;</span>
+        </button>
+        <a href="./tool-details.html" class="btn-icon btn-icon--profile" aria-label="User workspace">
+          <span aria-hidden="true">&#x1F464;</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>

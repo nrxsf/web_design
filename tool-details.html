@@ -1,0 +1,374 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Paste raw JSON data to instantly generate strongly typed TypeScript interfaces with nested inference offline.">
+  <title>DevForge — JSON to TypeScript Converter</title>
+</head>
+<body>
+
+  <%- include('./src/partials/header.ejs') %>
+
+  <main class="main-content" itemscope itemtype="https://schema.org/SoftwareApplication">
+    <div class="tool-details-container">
+
+      <nav class="breadcrumbs" aria-label="Breadcrumbs">
+        <ol class="breadcrumbs__list">
+          <li class="breadcrumbs__item">
+            <a href="./index.html" class="breadcrumbs__link" data-i18n="breadcrumb.home">Home</a>
+          </li>
+          <li class="breadcrumbs__item">
+            <a href="./tools.html" class="breadcrumbs__link" data-i18n="breadcrumb.tools">Tools</a>
+          </li>
+          <li class="breadcrumbs__item" aria-current="page">
+            <span class="breadcrumbs__current" itemprop="name" data-i18n="tool_details.crumb">JSON to TypeScript</span>
+          </li>
+        </ol>
+      </nav>
+
+      <header class="tool-header">
+        <div class="tool-header__main">
+          <div class="tool-header__title-row">
+            <span class="tool-header__icon" aria-hidden="true">{ }</span>
+            <h1 class="tool-header__title" itemprop="name" data-i18n="tool_details.title">
+              JSON to TypeScript Converter
+            </h1>
+            <span class="version-badge" itemprop="softwareVersion">v1.2.0</span>
+          </div>
+          
+          <p class="tool-header__description" itemprop="description" data-i18n="tool_details.desc">
+            Paste raw JSON data to instantly generate strongly typed TypeScript interfaces with nested inference.
+          </p>
+
+          <ul class="tool-header__metadata" aria-label="Tool execution parameters">
+            <li><span class="meta-label">CAT:</span> <span itemprop="applicationCategory">Converters</span></li>
+            <li><span class="status-indicator status-indicator--green" aria-hidden="true"></span> 0ms Latency (Client)</li>
+            <li><span class="meta-label">ENGINE:</span> WASM AST Engine Active</li>
+            <li><span class="meta-label">TARGET:</span> TS 4.9 - 5.7+</li>
+          </ul>
+        </div>
+
+        <aside class="tool-header__badge-panel" aria-label="Execution guarantee">
+          <span class="security-pill">
+            <span class="status-indicator status-indicator--green" aria-hidden="true"></span>
+            100% Offline &bull; Zero Telemetry &bull; WASM Sandbox
+          </span>
+        </aside>
+      </header>
+
+      <section class="tool-workspace" aria-label="Workspace converter canvas">
+        <h2 class="visually-hidden" data-i18n="tool_details.workspace_title">Converter Workspace</h2>
+
+        <form class="workspace-form" id="converter-form" action="#" method="post">
+          
+          <div class="workspace-toolbar">
+            <div class="workspace-toolbar__group">
+              <label for="root-type-input" class="toolbar-label" data-i18n="toolbar.root_type">Root Type:</label>
+              <input 
+                type="text" 
+                id="root-type-input" 
+                name="rootType" 
+                class="toolbar-input" 
+                value="UserPayload" 
+                required
+              >
+            </div>
+
+            <fieldset class="workspace-toolbar__group toolbar-radios">
+              <legend class="toolbar-label" data-i18n="toolbar.format">Format:</legend>
+              <label class="radio-label">
+                <input type="radio" name="formatStyle" value="interface" checked>
+                <span>Interface</span>
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="formatStyle" value="typeAlias">
+                <span>Type Alias</span>
+              </label>
+            </fieldset>
+
+            <div class="workspace-toolbar__group toolbar-checkboxes">
+              <label class="checkbox-label">
+                <input type="checkbox" name="optExport" checked>
+                <span data-i18n="toolbar.export">export</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="optOptional">
+                <span data-i18n="toolbar.optional">optional (?):</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="optNested" checked>
+                <span data-i18n="toolbar.nested">nested interfaces</span>
+              </label>
+            </div>
+
+            <div class="workspace-toolbar__actions">
+              <button type="button" class="btn btn--ghost" id="btn-sample" data-i18n="toolbar.sample">
+                <span aria-hidden="true">&#x21BB;</span> Sample
+              </button>
+              <button type="button" class="btn btn--ghost" id="btn-beautify" data-i18n="toolbar.beautify">
+                <span aria-hidden="true">&#x2261;</span> Beautify
+              </button>
+              <button type="button" class="btn btn--ghost" id="btn-clear" data-i18n="toolbar.clear">
+                <span aria-hidden="true">&#x2715;</span> Clear
+              </button>
+              <button type="submit" class="btn btn--primary" id="btn-generate" data-i18n="toolbar.generate">
+                <span aria-hidden="true">&#x26A1;</span> Generate Types <kbd>(Ctrl+Enter)</kbd>
+              </button>
+            </div>
+          </div>
+
+          <div class="workspace-panes">
+            
+            <article class="editor-pane editor-pane--input">
+              <header class="editor-pane__header">
+                <div class="editor-pane__file-info">
+                  <span class="editor-pane__filename">payload.json</span>
+                  <span class="editor-pane__file-status editor-pane__file-status--valid">
+                    &bull; Valid JSON (435 bytes)
+                  </span>
+                </div>
+                <div class="editor-pane__controls">
+                  <button type="button" class="editor-control-btn" data-i18n="editor.minify">Minify</button>
+                  <button type="button" class="editor-control-btn" data-i18n="editor.copy_input">Copy</button>
+                </div>
+              </header>
+
+              <div class="editor-pane__content">
+                <label for="json-input-field" class="visually-hidden">Raw JSON Input Payload</label>
+                <textarea 
+                  id="json-input-field" 
+                  name="jsonInput" 
+                  class="editor-pane__textarea" 
+                  spellcheck="false" 
+                  rows="24"
+                  placeholder="Paste raw JSON here..."
+                >{
+  "id": "usr_99824f8a",
+  "username": "alex_developer",
+  "email": "alex.dev@devforge.io",
+  "role": "lead_architect",
+  "is_verified": true,
+  "reputation_score": 1420,
+  "preferences": {
+    "theme": "dark-oled",
+    "telemetry_enabled": false,
+    "notification_channels": [
+      "email",
+      "webhook"
+    ]
+  },
+  "assigned_clusters": [
+    {
+      "cluster_id": "us-east-worker-01",
+      "nodes_count": 8,
+      "is_active": true
+    }
+  ]
+}</textarea>
+              </div>
+
+              <footer class="editor-pane__statusbar">
+                <span>UTF-8 &bull; JSON Validated</span>
+                <span>Ln 19, Col 2</span>
+              </footer>
+            </article>
+
+            <article class="editor-pane editor-pane--output">
+              <header class="editor-pane__header">
+                <div class="editor-pane__file-info">
+                  <span class="editor-pane__filename">types.ts</span>
+                  <span class="editor-pane__file-status editor-pane__file-status--generated">
+                    &bull; Generated in 2.3ms
+                  </span>
+                </div>
+                <div class="editor-pane__controls">
+                  <button type="button" class="editor-control-btn">.d.ts</button>
+                  <button type="button" class="editor-control-btn editor-control-btn--accent" data-i18n="editor.copy_interface">
+                    Copy Interface
+                  </button>
+                </div>
+              </header>
+
+              <div class="editor-pane__content">
+                <label for="ts-output-field" class="visually-hidden">Generated TypeScript Interfaces Output</label>
+                <textarea 
+                  id="ts-output-field" 
+                  name="tsOutput" 
+                  class="editor-pane__textarea editor-pane__textarea--readonly" 
+                  readonly 
+                  spellcheck="false" 
+                  rows="24"
+                >export interface Preferences {
+  theme: string;
+  telemetry_enabled: boolean;
+  notification_channels: string[];
+}
+
+export interface AssignedCluster {
+  cluster_id: string;
+  nodes_count: number;
+  is_active: boolean;
+}
+
+export interface UserPayload {
+  id: string;
+  username: string;
+  email: string;
+  role: string;
+  is_verified: boolean;
+  reputation_score: number;
+  preferences: Preferences;
+  assigned_clusters: AssignedCluster[];
+}</textarea>
+              </div>
+
+              <footer class="editor-pane__statusbar">
+                <span>TypeScript 5.4+ Strict &bull; 3 Interfaces Defined</span>
+                <span>0 Type Errors</span>
+              </footer>
+            </article>
+
+          </div>
+        </form>
+      </section>
+
+      <section class="engine-steps" aria-labelledby="engine-works-title">
+        <header class="engine-steps__header">
+          <h2 id="engine-works-title" class="engine-steps__title" data-i18n="engine.title">
+            How the Type Inference Engine Works
+          </h2>
+          <p class="engine-steps__subtitle" data-i18n="engine.subtitle">
+            Deterministic AST traversal built on WebAssembly for near-zero memory allocation and exact recursive type synthesis.
+          </p>
+        </header>
+
+        <ol class="engine-steps__list">
+          <li class="step-card">
+            <header class="step-card__header">
+              <span class="step-card__number" aria-hidden="true">1</span>
+              <span class="step-card__badge">Native WASM</span>
+            </header>
+            <h3 class="step-card__title" data-i18n="engine.step1_title">Deterministic AST Parsing</h3>
+            <p class="step-card__description" data-i18n="engine.step1_desc">
+              Reads the raw byte stream client-side to generate a concrete syntax tree without server round-trips or serializing overhead.
+            </p>
+          </li>
+
+          <li class="step-card">
+            <header class="step-card__header">
+              <span class="step-card__number" aria-hidden="true">2</span>
+              <span class="step-card__badge">PascalCase</span>
+            </header>
+            <h3 class="step-card__title" data-i18n="engine.step2_title">Recursive Structure Ingestion</h3>
+            <p class="step-card__description" data-i18n="engine.step2_desc">
+              Traverses nested object trees and dictionary properties, generating hoisted, reusable interface declarations for all sub-entities.
+            </p>
+          </li>
+
+          <li class="step-card">
+            <header class="step-card__header">
+              <span class="step-card__number" aria-hidden="true">3</span>
+              <span class="step-card__badge">Strict Union</span>
+            </header>
+            <h3 class="step-card__title" data-i18n="engine.step3_title">Union &amp; Array Resolution</h3>
+            <p class="step-card__description" data-i18n="engine.step3_desc">
+              Analyzes heterogeneous array members, dynamically unifying divergent primitive or object schemas into precise union bounds (<code>(string | number)[]</code>).
+            </p>
+          </li>
+        </ol>
+
+        <article class="snippet-embed" aria-label="Code integration snippet">
+          <header class="snippet-embed__header">
+            <div class="snippet-embed__tabs" role="tablist">
+              <button type="button" role="tab" aria-selected="true" class="snippet-embed__tab snippet-embed__tab--active">
+                TypeScript / Node.js
+              </button>
+              <button type="button" role="tab" aria-selected="false" class="snippet-embed__tab">
+                CLI Command
+              </button>
+              <button type="button" role="tab" aria-selected="false" class="snippet-embed__tab">
+                Browser ESM
+              </button>
+            </div>
+            <button type="button" class="snippet-embed__copy-btn" data-i18n="snippet.copy">
+              <span aria-hidden="true">&#x2398;</span> Copy snippet
+            </button>
+          </header>
+
+          <pre class="snippet-embed__code"><code><span class="token-keyword">import</span> { jsonToTypeScript } <span class="token-keyword">from</span> <span class="token-string">'@devforge/type-engine'</span>;
+
+<span class="token-keyword">const</span> rawPayload = { <span class="token-property">"project"</span>: <span class="token-string">"devforge"</span>, <span class="token-property">"active"</span>: <span class="token-keyword">true</span>, <span class="token-property">"stars"</span>: 4920 };
+
+<span class="token-keyword">const</span> { dtsOutput, summary } = <span class="token-keyword">await</span> jsonToTypeScript(rawPayload, {
+  rootName: <span class="token-string">'ProjectManifest'</span>,
+  exportInterfaces: <span class="token-keyword">true</span>,
+  makeOptional: <span class="token-keyword">false</span>,
+  declarationStyle: <span class="token-string">'interface'</span> <span class="token-comment">// or 'type-alias'</span>
+});
+
+console.log(dtsOutput);
+<span class="token-comment">// => export interface ProjectManifest { ... }</span></code></pre>
+        </article>
+      </section>
+
+      <section class="recommended-tools" aria-labelledby="recommended-tools-title">
+        <div class="recommended-tools__header">
+          <h2 id="recommended-tools-title" class="recommended-tools__title" data-i18n="recommended.title">
+            Recommended Developer Utilities
+          </h2>
+          <a href="./tools.html" class="recommended-tools__all-link" data-i18n="recommended.view_all">
+            View all 48 tools &rarr;
+          </a>
+        </div>
+
+        <div class="recommended-tools__grid">
+          <%- include('./src/partials/tool-card.ejs', {
+            icon: '&equiv;',
+            category: 'Formatters',
+            categoryI18n: 'cat.formatters',
+            badge: '0ms Client',
+            badgeType: 'success',
+            title: 'JSON Minifier & Formatter',
+            description: 'Compress, re-indent, or beautify JSON payloads with instant whitespace elimination and syntax linting.',
+            descI18n: 'tool.minifier_desc',
+            previewCode: 'dev.tool.json-minifier',
+            tags: ['[Formatter] AST']
+          }) %>
+
+          <%- include('./src/partials/tool-card.ejs', {
+            icon: '&#x22C8;',
+            category: 'Converters',
+            categoryI18n: 'cat.converters',
+            badge: '0ms Client',
+            badgeType: 'success',
+            title: 'TypeScript to Zod Schema',
+            description: 'Generate runtime validation schemas directly from TypeScript interface declarations with zero setup.',
+            descI18n: 'tool.zod_desc',
+            previewCode: 'dev.tool.ts-zod',
+            tags: ['[Converter] Zod v3']
+          }) %>
+
+          <%- include('./src/partials/tool-card.ejs', {
+            icon: '&#x1F512;',
+            category: 'Encoders',
+            categoryI18n: 'cat.encoders',
+            badge: 'Instant',
+            badgeType: 'indigo',
+            title: 'Base64 & Hex Encoder',
+            description: 'Bi-directional UTF-8 and binary safe payload conversion with real-time byte counters and checksum validation.',
+            descI18n: 'tool.base64_hex_desc',
+            previewCode: 'dev.tool.hex-stream',
+            tags: ['[Codec] RFC 4648']
+          }) %>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <%- include('./src/partials/footer.ejs') %>
+
+</body>
+</html>

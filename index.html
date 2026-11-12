@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Instant, offline-first client-side developer tooling. Run deterministic parsing, cryptographic hashing, and format verification locally.">
+  <title>DevForge — Essential Micro-Utilities for Modern Developers</title>
+</head>
+<body>
+
+  <%- include('./src/partials/header.ejs') %>
+
+  <main class="main-content">
+
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__container">
+        <div class="hero__badge">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span class="hero__badge-text" data-i18n="hero.badge">OFFLINE-FIRST &bull; ZERO TELEMETRY &bull; WASM POWERED</span>
+        </div>
+
+        <h1 id="hero-title" class="hero__title" data-i18n="hero.title">
+          Essential Micro-Utilities for Modern Developers
+        </h1>
+
+        <p class="hero__description" data-i18n="hero.subtitle">
+          Instant, offline-first client-side developer tooling. Run deterministic parsing, cryptographic hashing, and format verification entirely in your local sandbox.
+        </p>
+
+        <form class="hero__search search-box" role="search" action="./tools.html" method="get">
+          <label for="hero-search-input" class="visually-hidden" data-i18n="search.hero_label">Search developer tools</label>
+          <span class="search-box__icon" aria-hidden="true">&#x1F50D;</span>
+          <input 
+            type="search" 
+            id="hero-search-input" 
+            name="q" 
+            class="search-box__input" 
+            placeholder="Search developer tools" 
+            data-i18n="search.hero_placeholder"
+          >
+        </form>
+
+        <nav class="hero__categories category-chips" aria-label="Popular tool categories">
+          <ul class="category-chips__list">
+            <li><a href="./tools.html?cat=json" class="category-chip" data-i18n="cat.json">JSON Tools</a></li>
+            <li><a href="./tools.html?cat=crypto" class="category-chip" data-i18n="cat.crypto">Cryptography</a></li>
+            <li><a href="./tools.html?cat=encoders" class="category-chip" data-i18n="cat.encoders">Text Encoders</a></li>
+            <li><a href="./tools.html?cat=web" class="category-chip" data-i18n="cat.web">Web Utilities</a></li>
+            <li><a href="./tools.html?cat=css" class="category-chip" data-i18n="cat.css">CSS Generators</a></li>
+            <li><a href="./tools.html?cat=auth" class="category-chip" data-i18n="cat.auth">Tokens &amp; Auth</a></li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+
+    <section class="platform-metrics" aria-label="Platform capabilities">
+      <div class="platform-metrics__container">
+        <ul class="platform-metrics__list">
+          <li class="metric-item">
+            <strong class="metric-item__value">50+</strong>
+            <span class="metric-item__label" data-i18n="metrics.tools">MICRO-UTILITIES</span>
+          </li>
+          <li class="metric-item">
+            <strong class="metric-item__value">0ms</strong>
+            <span class="metric-item__label" data-i18n="metrics.latency">SERVER LATENCY</span>
+          </li>
+          <li class="metric-item">
+            <strong class="metric-item__value">100%</strong>
+            <span class="metric-item__label" data-i18n="metrics.execution">LOCAL EXECUTION</span>
+          </li>
+          <li class="metric-item">
+            <strong class="metric-item__value">Apache 2.0</strong>
+            <span class="metric-item__label" data-i18n="metrics.license">OPEN SOURCE</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="featured-tools" aria-labelledby="featured-tools-title">
+      <div class="featured-tools__container">
+        <div class="featured-tools__header">
+          <div>
+            <span class="section-tag" data-i18n="featured.tag">CORE TOOLKIT</span>
+            <h2 id="featured-tools-title" class="featured-tools__title" data-i18n="featured.title">Featured Developer Tools</h2>
+          </div>
+          <p class="featured-tools__runtime-note" data-i18n="featured.runtime">Real-time WASM pipeline &bull; Sandboxed runtime</p>
+        </div>
+
+        <div class="featured-tools__grid">
+          <%- include('./src/partials/tool-card.ejs', {
+            icon: '{ }',
+            category: 'Formatter',
+            categoryI18n: 'cat.formatter',
+            badge: '0ms (Client)',
+            badgeType: 'success',
+            title: 'JSON Formatter & Validator',
+            description: 'Clean, validate, format, and convert raw JSON payloads with instant tree view and schema validation.',
+            descI18n: 'tool.json_desc',
+            previewCode: '{ "status": 200, "valid": true }',
+            tags: ['v1.8', 'UTF-8']
+          }) %>
+
+          <%- include('./src/partials/tool-card.ejs', {
+            icon: '[.*]',
+            category: 'RegEx',
+            categoryI18n: 'cat.regex',
+            badge: 'WASM Fast',
+            badgeType: 'indigo',
+            title: 'RegEx Visualizer & Live Tester',
+            description: 'Real-time regular expression match evaluator with AST decomposition and zero-backtracking alerts.',
+            descI18n: 'tool.regex_desc',
+            previewCode: '/(?:[a-z0-9_]+)/g',
+            tags: ['PCRE2', 'ECMAScript']
+          }) %>
+
+          <%- include('./src/partials/tool-card.ejs', {
+            icon: '&lt;/&gt;',
+            category: 'Text Encoders',
+            categoryI18n: 'cat.encoders',
+            badge: '0ms',
+            badgeType: 'success',
+            title: 'Base64 Encoder / Decoder',
+            description: 'Convert text, binaries, and images to/from RFC 4648 Base64 strings with UTF-8 and URL-safe modes.',
+            descI18n: 'tool.base64_desc',
+            previewCode: 'SGVsbG8gV29ybGQ=',
+            tags: ['RFC 4648', 'Hex view']
+          }) %>
+
+          <%- include('./src/partials/tool-card.ejs', {
+            icon: '&#x1F511;',
+            category: 'Cryptography',
+            categoryI18n: 'cat.crypto',
+            badge: '100% Client',
+            badgeType: 'success',
+            title: 'JWT Debugger & Inspector',
+            description: 'Decode JSON Web Tokens, inspect headers, payload claims, expiration timestamps, and verify HMAC/RSA signatures locally.',
+            descI18n: 'tool.jwt_desc',
+            previewCode: 'alg: HS256, typ: JWT',
+            tags: ['Zero API dispatch']
+          }) %>
+
+          <%- include('./src/partials/tool-card.ejs', {
+            icon: '&#x2699;',
+            category: 'Generators',
+            categoryI18n: 'cat.generators',
+            badge: 'Instant',
+            badgeType: 'indigo',
+            title: 'UUID v4 / v7 Generator',
+            description: 'Bulk cryptographically secure UUID and ULID generator with case formatting, timestamp sorting, and dash toggles.',
+            descI18n: 'tool.uuid_desc',
+            previewCode: 'f47ac10b-58cc-4372-a567-0e02b2c3d479',
+            tags: ['WebCrypto CSPRNG']
+          }) %>
+
+          <%- include('./src/partials/tool-card.ejs', {
+            icon: '&#x1F4DD;',
+            category: 'Web Utilities',
+            categoryI18n: 'cat.web',
+            badge: 'Realtime',
+            badgeType: 'indigo',
+            title: 'Markdown Live Previewer',
+            description: 'GitHub-flavored Markdown editor with split live rendering, KaTeX math formulas, syntax styling, and HTML export.',
+            descI18n: 'tool.markdown_desc',
+            previewCode: '## Preview mode active',
+            tags: ['GFM', 'KaTeX']
+          }) %>
+        </div>
+      </div>
+    </section>
+
+    <section class="tech-highlight" aria-labelledby="workstation-title">
+      <picture class="tech-highlight__graphic">
+        <source 
+          media="(min-width: 1280px)" 
+          srcset="./src/assets/img/architecture-diagram-desktop.webp 1x, ./src/assets/img/architecture-diagram-desktop@2x.webp 2x" 
+          type="image/webp"
+        >
+        <source 
+          media="(min-width: 768px)" 
+          srcset="./src/assets/img/architecture-diagram-tablet.webp 1x, ./src/assets/img/architecture-diagram-tablet@2x.webp 2x" 
+          type="image/webp"
+        >
+        <source 
+          srcset="./src/assets/img/architecture-diagram-mobile.webp 1x, ./src/assets/img/architecture-diagram-mobile@2x.webp 2x" 
+          type="image/webp"
+        >
+        <img 
+          class="tech-highlight__img" 
+          src="./src/assets/img/architecture-diagram-desktop.png" 
+          alt="DevForge WebAssembly isolated execution pipeline architecture schema" 
+          width="640" 
+          height="360" 
+          loading="lazy"
+        >
+</picture>
+      <div class="tech-highlight__container">
+        <div class="tech-highlight__content">
+          <span class="section-tag" data-i18n="highlight.tag">DETERMINISTIC EXECUTION</span>
+          <h2 id="workstation-title" class="tech-highlight__title" data-i18n="highlight.title">
+            Zero round-trips. Your workstation is the execution host.
+          </h2>
+          <p class="tech-highlight__description" data-i18n="highlight.desc">
+            DevForge operates inside a strictly isolated browser worker pipeline. We compile Rust parsers directly into WebAssembly, meaning heavy AST operations happen with native C-speed while keeping corporate data strictly confidential.
+          </p>
+          <div class="tech-highlight__actions">
+            <a href="./tools.html" class="btn btn--primary" data-i18n="highlight.explore_cta">Discover over 50+ tools</a>
+            <a href="./about.html" class="btn btn--secondary" data-i18n="highlight.security_cta">Read Security Manifest &rarr;</a>
+          </div>
+        </div>
+
+        <aside class="tech-highlight__terminal terminal-card" aria-label="Benchmark execution output">
+          <div class="terminal-card__header">
+            <div class="terminal-card__controls" aria-hidden="true">
+              <span class="terminal-dot terminal-dot--red"></span>
+              <span class="terminal-dot terminal-dot--yellow"></span>
+              <span class="terminal-dot terminal-dot--green"></span>
+            </div>
+            <span class="terminal-card__title">Local Web Worker Pipeline</span>
+            <span class="terminal-card__badge">Thread: WASM_ISOLATE_0</span>
+          </div>
+          <pre class="terminal-card__body"><code><span class="terminal-card__cmd">$ devforge bench --suite all</span>
+<span class="terminal-card__success">&#x2022; [JSON-AST] 10MB payload parse: 1.4ms</span>
+<span class="terminal-card__success">&#x2022; [REGEX-PCRE] Backtracking sanity check: 0.2ms</span>
+<span class="terminal-card__success">&#x2022; [CRYPTO-HASH] SHA-512 stream: 0.9ms</span>
+<span class="terminal-card__notice">&#x2022; Outbound network sockets blocked: 0 bytes transferred</span></code></pre>
+          <div class="terminal-card__footer">
+            <span>Network Activity: <strong>Strict 0.0 KB (Completely Offline)</strong></span>
+            <span class="terminal-card__status">SUCCESS (100%)</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="features" aria-labelledby="features-title">
+      <div class="features__container">
+        <div class="features__header">
+          <span class="section-tag" data-i18n="features.tag">ENGINEERED FOR DEVELOPERS</span>
+          <h2 id="features-title" class="features__title" data-i18n="features.title">Why Engineers Prefer DevForge</h2>
+          <p class="features__subtitle" data-i18n="features.subtitle">
+            No advertisements. No subscriptions. No pasting confidential tokens into dubious third-party cloud servers.
+          </p>
+        </div>
+
+        <div class="features__grid">
+          <article class="feature-card">
+            <div class="feature-card__icon" aria-hidden="true">&#x1F6E1;</div>
+            <h3 class="feature-card__title" data-i18n="features.card1_title">100% Client-Side Privacy</h3>
+            <p class="feature-card__description" data-i18n="features.card1_desc">
+              Your code, tokens, private keys, and data payloads never leave your browser sandbox. Zero API calls, zero server telemetry logs, zero analytics beacons.
+            </p>
+            <span class="feature-card__meta">&bull; Zero Cloud Retention</span>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-card__icon" aria-hidden="true">&#x26A1;</div>
+            <h3 class="feature-card__title" data-i18n="features.card2_title">Zero Dependencies</h3>
+            <p class="feature-card__description" data-i18n="features.card2_desc">
+              Ultra-lightweight WebAssembly and native Web API micro-engines deliver sub-millisecond execution with zero framework bloat or third-party trackers.
+            </p>
+            <span class="feature-card__meta">&bull; Instant WASM Engine</span>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-card__icon" aria-hidden="true">&#x2934;</div>
+            <h3 class="feature-card__title" data-i18n="features.card3_title">Open Source Snippets</h3>
+            <p class="feature-card__description" data-i18n="features.card3_desc">
+              Every utility is backed by transparent, peer-reviewed TypeScript and Rust source code ready to audit, fork, or embed inside your internal CLI tooling.
+            </p>
+            <span class="feature-card__meta">&bull; Apache 2.0 Licensure</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <aside class="hotkeys-bar" aria-label="Quick keyboard shortcuts">
+      <div class="hotkeys-bar__container">
+        <div class="hotkeys-bar__info">
+          <span class="hotkeys-bar__icon" aria-hidden="true">&#x2328;</span>
+          <div>
+            <strong class="hotkeys-bar__title" data-i18n="hotkeys.title">Speed Navigation</strong>
+            <p class="hotkeys-bar__hint" data-i18n="hotkeys.hint">Keep your hands on the keyboard for rapid switching.</p>
+          </div>
+        </div>
+        <ul class="hotkeys-bar__list">
+          <li><kbd>Ctrl</kbd> + <kbd>K</kbd> <span data-i18n="hotkeys.quick">Quick Search</span></li>
+          <li><kbd>/</kbd> <span data-i18n="hotkeys.focus">Focus Filter</span></li>
+          <li><kbd>Esc</kbd> <span data-i18n="hotkeys.reset">Reset Canvas</span></li>
+        </ul>
+      </div>
+    </aside>
+
+  </main>
+
+  <%- include('./src/partials/footer.ejs') %>
+
+</body>
+</html>

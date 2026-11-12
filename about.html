@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A high-speed, privacy-first suite of deterministic web utilities executing entirely inside your browser's local sandbox memory.">
+  <title>DevForge — About & Architecture</title>
+</head>
+<body>
+
+  <%- include('./src/partials/header.ejs') %>
+
+  <main class="main-content">
+    <div class="about-container">
+
+      <nav class="breadcrumbs" aria-label="Breadcrumb navigation">
+        <ol class="breadcrumbs__list">
+          <li class="breadcrumbs__item">
+            <a href="./index.html" class="breadcrumbs__link" data-i18n="breadcrumb.home">Home</a>
+          </li>
+          <li class="breadcrumbs__item" aria-current="page">
+            <span class="breadcrumbs__current" data-i18n="breadcrumb.about">About</span>
+          </li>
+        </ol>
+      </nav>
+
+      <header class="about-hero">
+        <div class="about-hero__badge">
+          <span class="status-indicator status-indicator--green" aria-hidden="true"></span>
+          <span data-i18n="about.runtime_badge">100% Client-Side Runtime &bull; Zero Telemetry</span>
+        </div>
+
+        <h1 class="about-hero__title" data-i18n="about.title">
+          Built by Developers,<br>for Developers.
+        </h1>
+
+        <p class="about-hero__description" data-i18n="about.subtitle">
+          A high-speed, privacy-first suite of deterministic web utilities executing entirely inside your browser's local sandbox memory. No analytics crawlers, no proxy pipelines, no data exfiltration.
+        </p>
+
+        <div class="about-hero__actions">
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn btn--outline" data-i18n="about.read_rfc">
+            <span aria-hidden="true">&#x1F4C4;</span> Read Architecture RFC
+          </a>
+          <span class="about-hero__status">
+            <span aria-hidden="true">&#x1F6E1;</span>
+            <span data-i18n="about.verifier_active">Deterministic Execution Verifier Active</span>
+          </span>
+        </div>
+      </header>
+
+      <section class="pillars" aria-labelledby="pillars-heading">
+        <div class="pillars__header">
+          <div>
+            <span class="section-tag" data-i18n="pillars.tag">CORE ARCHITECTURAL PILLARS</span>
+            <h2 id="pillars-heading" class="pillars__title" data-i18n="pillars.title">
+              Strict Determinism &amp; Zero Compromise
+            </h2>
+          </div>
+          <p class="pillars__manifesto-note" data-i18n="pillars.manifesto">
+            Built according to the Local-First software manifesto. Hardware-level memory isolation per tab.
+          </p>
+        </div>
+
+        <div class="pillars__grid">
+          
+          <article class="pillar-card">
+            <header class="pillar-card__header">
+              <span class="pillar-card__icon" aria-hidden="true">&#x1F6E1;</span>
+              <span class="pillar-card__badge" data-i18n="pillars.no_ingestion">No Ingestion</span>
+            </header>
+            <h3 class="pillar-card__title" data-i18n="pillars.p1_title">Privacy First</h3>
+            <p class="pillar-card__description" data-i18n="pillars.p1_desc">
+              No code or payloads ever exit your local browser context. Every byte parsed, converted, or inspected runs within an isolated Web Worker sandbox with no network transit permissions.
+            </p>
+            <aside class="pillar-card__telemetry telemetry-box" aria-label="Network isolation report">
+              <div class="telemetry-box__row">
+                <span class="telemetry-box__label">NETWORK INTERCEPT</span>
+                <span class="telemetry-box__badge">BLOCK_RULE_9</span>
+              </div>
+              <code class="telemetry-box__code">POST /api/telemetry &rarr; 404 (Disabled)</code>
+              <span class="telemetry-box__status">&bull; Memory Heap: Sandbox Isolated</span>
+            </aside>
+          </article>
+
+          <article class="pillar-card">
+            <header class="pillar-card__header">
+              <span class="pillar-card__icon" aria-hidden="true">&#x26A1;</span>
+              <span class="pillar-card__badge" data-i18n="pillars.zero_latency">0ms Latency</span>
+            </header>
+            <h3 class="pillar-card__title" data-i18n="pillars.p2_title">Ultra Lightweight</h3>
+            <p class="pillar-card__description" data-i18n="pillars.p2_desc">
+              Zero telemetry, zero script payloads over 30kb, and complete offline execution backed by Service Worker precaching. Pre-compiled Rust WebAssembly routines guarantee sub-millisecond execution.
+            </p>
+            <aside class="pillar-card__telemetry telemetry-box" aria-label="Performance report">
+              <div class="telemetry-box__row">
+                <span class="telemetry-box__label">PERFORMANCE TELEMETRY</span>
+                <span class="telemetry-box__badge telemetry-box__badge--pass">PASS</span>
+              </div>
+              <div class="telemetry-box__metrics">
+                <span>TTFB: <strong>18ms (Edge Cache)</strong></span>
+                <span>Bundle gzip: <strong>24.2kb Total</strong></span>
+              </div>
+              <span class="telemetry-box__status">&bull; Offline Ready: PWA Service Worker Active</span>
+            </aside>
+          </article>
+
+          <article class="pillar-card">
+            <header class="pillar-card__header">
+              <span class="pillar-card__icon" aria-hidden="true">&#x25A3;</span>
+              <span class="pillar-card__badge" data-i18n="pillars.w3c">W3C Compliant</span>
+            </header>
+            <h3 class="pillar-card__title" data-i18n="pillars.p3_title">Open Architecture</h3>
+            <p class="pillar-card__description" data-i18n="pillars.p3_desc">
+              Constructed strictly atop open modern W3C specifications and modular ES modules. Copy transparent, un-obfuscated algorithms directly from our source into your production CLI or microservices.
+            </p>
+            <aside class="pillar-card__telemetry telemetry-box" aria-label="Runtime bindings">
+              <div class="telemetry-box__row">
+                <span class="telemetry-box__label">PRIMITIVES BINDING</span>
+                <span class="telemetry-box__badge">ES2024</span>
+              </div>
+              <ul class="telemetry-box__tags" aria-label="Bound web standards">
+                <li><code>SubtleCrypto</code></li>
+                <li><code>ReadableStreams</code></li>
+                <li><code>Web Workers</code></li>
+                <li><code>AST Babel Core</code></li>
+              </ul>
+            </aside>
+          </article>
+
+        </div>
+      </section>
+
+      <section class="contribute-workflow" aria-labelledby="contribute-heading">
+        <div class="contribute-workflow__header">
+          <div>
+            <span class="section-tag" data-i18n="workflow.tag">CONTRIBUTOR WORKFLOW</span>
+            <h2 id="contribute-heading" class="contribute-workflow__title" data-i18n="workflow.title">
+              How to Contribute
+            </h2>
+            <p class="contribute-workflow__subtitle" data-i18n="workflow.subtitle">
+              Submit a new self-contained micro-utility in under 15 minutes. No complex boilerplate or cloud keys required.
+            </p>
+          </div>
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="contribute-workflow__spec-link" data-i18n="workflow.spec_link">
+            Read Tool Definition Spec &rarr;
+          </a>
+        </div>
+
+        <ol class="contribute-workflow__steps">
+          
+          <li class="workflow-step">
+            <div class="workflow-step__header">
+              <span class="workflow-step__number">1</span>
+              <span class="workflow-step__phase" data-i18n="workflow.phase1">INITIALIZE</span>
+            </div>
+            <h3 class="workflow-step__title" data-i18n="workflow.step1_title">Fork &amp; Clone</h3>
+            <p class="workflow-step__desc" data-i18n="workflow.step1_desc">
+              Clone the repository and install lightweight dependencies with pnpm. Pure deterministic tooling with zero cloud secrets.
+            </p>
+            <div class="workflow-step__terminal">
+              <code>git clone https://github.com/devforge/tools.git</code>
+              <button type="button" class="btn-copy-code" aria-label="Copy clone command" title="Copy command">
+                <span aria-hidden="true">&#x2398;</span>
+              </button>
+            </div>
+          </li>
+
+          <li class="workflow-step">
+            <div class="workflow-step__header">
+              <span class="workflow-step__number">2</span>
+              <span class="workflow-step__phase" data-i18n="workflow.phase2">IMPLEMENT</span>
+            </div>
+            <h3 class="workflow-step__title" data-i18n="workflow.step2_title">Author Micro-Utility</h3>
+            <p class="workflow-step__desc" data-i18n="workflow.step2_desc">
+              Define your utility in <code>src/tools/</code> implementing the strictly-typed <code>ToolDefinition</code> interface using pure functions.
+            </p>
+            <div class="workflow-step__terminal">
+              <code>export const defineTool = ({ id, run }) =&gt; ({ ... })</code>
+            </div>
+          </li>
+
+          <li class="workflow-step">
+            <div class="workflow-step__header">
+              <span class="workflow-step__number">3</span>
+              <span class="workflow-step__phase" data-i18n="workflow.phase3">INTEGRATE</span>
+            </div>
+            <h3 class="workflow-step__title" data-i18n="workflow.step3_title">Submit Pull Request</h3>
+            <p class="workflow-step__desc" data-i18n="workflow.step3_desc">
+              Automated CI guarantees strict type safety, zero memory leaks, and passes bundle payload thresholds (&lt;5kb net delta).
+            </p>
+            <div class="workflow-step__terminal workflow-step__terminal--status">
+              <span>&bull; CI: 100% Passed &bull; Verified Zero-Telemetry</span>
+            </div>
+          </li>
+
+        </ol>
+      </section>
+
+      <section class="tech-stack" aria-labelledby="stack-heading">
+        <div class="tech-stack__header">
+          <h2 id="stack-heading" class="tech-stack__title" data-i18n="stack.title">
+            <span aria-hidden="true">&#x25C7;</span> Engineering Stack &amp; Runtime Foundation
+          </h2>
+          <span class="tech-stack__badge" data-i18n="stack.badge">ESM Native &bull; No Framework Lock-In</span>
+        </div>
+
+        <div class="tech-stack__grid">
+          
+          <article class="stack-card">
+            <div class="stack-card__icon" aria-hidden="true">&#x26A1;</div>
+            <div class="stack-card__content">
+              <div class="stack-card__title-row">
+                <h3 class="stack-card__title">Vite Engine</h3>
+                <span class="version-badge">v5.4</span>
+              </div>
+              <p class="stack-card__desc" data-i18n="stack.vite_desc">
+                Instant HMR &amp; Deterministic Tree-Shaking
+              </p>
+            </div>
+          </article>
+
+          <article class="stack-card">
+            <div class="stack-card__icon" aria-hidden="true">&#x25A6;</div>
+            <div class="stack-card__content">
+              <div class="stack-card__title-row">
+                <h3 class="stack-card__title">SCSS 7-1 Architecture</h3>
+                <span class="version-badge">Tokens</span>
+              </div>
+              <p class="stack-card__desc" data-i18n="stack.scss_desc">
+                Modular Token System &amp; CSS Variables
+              </p>
+            </div>
+          </article>
+
+          <article class="stack-card">
+            <div class="stack-card__icon" aria-hidden="true">&lt;&gt;</div>
+            <div class="stack-card__content">
+              <div class="stack-card__title-row">
+                <h3 class="stack-card__title">Vanilla ES6+ Primitives</h3>
+                <span class="version-badge">Standard</span>
+              </div>
+              <p class="stack-card__desc" data-i18n="stack.es6_desc">
+                Direct DOM &amp; Native Browser APIs
+              </p>
+            </div>
+          </article>
+
+          <article class="stack-card">
+            <div class="stack-card__icon" aria-hidden="true">&#x2699;</div>
+            <div class="stack-card__content">
+              <div class="stack-card__title-row">
+                <h3 class="stack-card__title">Mock Fixture Engine</h3>
+                <span class="version-badge">JSON API</span>
+              </div>
+              <p class="stack-card__desc" data-i18n="stack.json_desc">
+                Client-side Mock Benchmarking &amp; Schema Validation
+              </p>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <%- include('./src/partials/footer.ejs') %>
+
+</body>
+</html>

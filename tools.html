@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse all instant browser-based micro-tools for formatting, cryptographic hashing, encoding, and conversion.">
+  <title>DevForge — All Developer Utilities</title>
+</head>
+<body>
+
+  <%- include('./src/partials/header.ejs') %>
+
+  <main class="main-content">
+    <div class="catalog-container">
+
+      <nav class="breadcrumbs" aria-label="Breadcrumb navigation">
+        <ol class="breadcrumbs__list">
+          <li class="breadcrumbs__item">
+            <a href="./index.html" class="breadcrumbs__link" data-i18n="breadcrumb.home">Home</a>
+          </li>
+          <li class="breadcrumbs__item">
+            <a href="./tools.html" class="breadcrumbs__link" data-i18n="breadcrumb.tools">Tools</a>
+          </li>
+          <li class="breadcrumbs__item" aria-current="page">
+            <span class="breadcrumbs__current" data-i18n="breadcrumb.all_utilities">All Utilities</span>
+          </li>
+        </ol>
+      </nav>
+
+      <header class="page-header">
+        <div class="page-header__title-row">
+          <div class="page-header__headings">
+            <div class="page-header__badge-wrap">
+              <h1 class="page-header__title" data-i18n="catalog.title">All Developer Utilities</h1>
+              <span class="version-badge">v2.4.0</span>
+            </div>
+            <p class="page-header__description" data-i18n="catalog.subtitle">
+              Instant browser-based micro-tools for formatting, cryptographic hashing, encoding, and conversion. Zero data leaks, zero telemetry tracking.
+            </p>
+          </div>
+
+          <aside class="page-header__status-panel" aria-label="Catalog operational status">
+            <span class="status-indicator">
+              <span class="status-indicator__dot status-indicator__dot--green" aria-hidden="true"></span>
+              <span data-i18n="status.engine">0ms Latency Engine</span>
+            </span>
+            <span class="status-indicator__counter" data-i18n="status.counter">
+              Showing 24 of 54 tools
+            </span>
+          </aside>
+        </div>
+      </header>
+
+      <section class="catalog-controls" aria-label="Catalog filters and search">
+        <form class="catalog-controls__form" role="search" action="./tools.html" method="get">
+          
+          <div class="catalog-controls__top-row">
+            <div class="catalog-search">
+              <label for="catalog-search-input" class="visually-hidden" data-i18n="catalog.search_label">Search tools by keyword</label>
+              <span class="catalog-search__icon" aria-hidden="true">&#x1F50D;</span>
+              <input 
+                type="search" 
+                id="catalog-search-input" 
+                name="search" 
+                class="catalog-search__input" 
+                placeholder="Search by name, utility keyword (e.g. 'sha256', 'pretty', 'uuid')..." 
+                data-i18n="catalog.search_placeholder"
+              >
+              <kbd class="catalog-search__hint">Press /</kbd>
+            </div>
+
+            <div class="catalog-controls__badge">
+              <span aria-hidden="true">&#x1F6E1;</span>
+              <span data-i18n="catalog.offline_status">100% Offline Ready</span>
+            </div>
+
+            <div class="catalog-sort">
+              <label for="sort-select" class="catalog-sort__label" data-i18n="catalog.sort_label">Sort:</label>
+              <select id="sort-select" name="sort" class="catalog-sort__select">
+                <option value="popular" selected data-i18n="sort.popular">Most Popular</option>
+                <option value="name_asc" data-i18n="sort.name_asc">Name (A-Z)</option>
+                <option value="name_desc" data-i18n="sort.name_desc">Name (Z-A)</option>
+                <option value="fastest" data-i18n="sort.fastest">Lowest Latency</option>
+              </select>
+            </div>
+
+            <div class="view-toggle" role="group" aria-label="Layout view switcher">
+              <button type="button" class="view-toggle__btn view-toggle__btn--active" aria-label="Grid view" title="Grid view" aria-pressed="true">
+                <span aria-hidden="true">&#x25A6;</span>
+              </button>
+              <button type="button" class="view-toggle__btn" aria-label="List view" title="List view" aria-pressed="false">
+                <span aria-hidden="true">&#x2630;</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="filter-tabs" role="tablist" aria-label="Filter tools by category">
+            <button type="button" role="tab" aria-selected="true" class="filter-chip filter-chip--active" data-i18n="tab.all">
+              <span aria-hidden="true">&#x2637;</span> All <span class="filter-chip__count">24</span>
+            </button>
+            <button type="button" role="tab" aria-selected="false" class="filter-chip" data-i18n="tab.formatters">
+              <span aria-hidden="true">&#x2263;</span> Formatters <span class="filter-chip__count">4</span>
+            </button>
+            <button type="button" role="tab" aria-selected="false" class="filter-chip" data-i18n="tab.converters">
+              <span aria-hidden="true">&#x21C4;</span> Converters <span class="filter-chip__count">4</span>
+            </button>
+            <button type="button" role="tab" aria-selected="false" class="filter-chip" data-i18n="tab.security">
+              <span aria-hidden="true">&#x1F512;</span> Security <span class="filter-chip__count">5</span>
+            </button>
+            <button type="button" role="tab" aria-selected="false" class="filter-chip" data-i18n="tab.encoders">
+              <span aria-hidden="true">&#x25C7;</span> Encoders <span class="filter-chip__count">4</span>
+            </button>
+            <button type="button" role="tab" aria-selected="false" class="filter-chip" data-i18n="tab.web">
+              <span aria-hidden="true">&#x25A4;</span> Web <span class="filter-chip__count">5</span>
+            </button>
+          </div>
+
+        </form>
+      </section>
+
+      <section class="catalog-grid" aria-label="Utilities showcase">
+        <h2 class="visually-hidden" data-i18n="catalog.grid_heading">Tools List</h2>
+
+        <div class="catalog-grid__items">
+          
+          <%- include('./src/partials/tool-card.ejs', {
+            icon: '{ }',
+            category: 'Formatters',
+            categoryI18n: 'cat.formatters',
+            badge: '0ms Client',
+            badgeType: 'success',
+            title: 'JSON Formatter & Validator',
+            description: 'Minify, prettify, inspect schema, and repair broken JSON trees with zero telemetry and instant syntax checks.',
+            descI18n: 'tool.json_desc',
+            previewCode: 'dev.tool.json-formatter',
+            tags: ['[Local] v1.8']
+          }) %>
+
+          <%- include('./src/partials/tool-card.ejs', {
+            icon: '(.*)',
+            category: 'Web',
+            categoryI18n: 'cat.web',
+            badge: 'WASM Fast',
+            badgeType: 'indigo',
+            title: 'RegEx Visualizer & Tester',
+            description: 'Interactive regular expression tester with colorized syntax trees, group capture breakdown, and AST visualization.',
+            descI18n: 'tool.regex_desc',
+            previewCode: 'dev.tool.regex-engine',
+            tags: ['[Rust/WASM] PCRE2']
+          }) %>
+
+          <%- include('./src/partials/tool-card.ejs', {
+            icon: '&uarr;&darr;',
+            category: 'Encoders',
+            categoryI18n: 'cat.encoders',
+            badge: '0ms Client',
+            badgeType: 'success',
+            title: 'Base64 Encoder / Decoder',
+            description: 'Bi-directional UTF-8 and URL-safe Base64 conversion with multi-file drag & drop and interactive payload inspect.',
+            descI18n: 'tool.base64_desc',
+            previewCode: 'dev.tool.base64-codec',
+            tags: ['[Stream] RFC 4648']
+          }) %>
+
+          <%- include('./src/partials/tool-card.ejs', {
+            icon: '&#x1F511;',
+            category: 'Security',
+            categoryI18n: 'cat.security',
+            badge: '100% Client',
+            badgeType: 'success',
+            title: 'JWT Debugger & Inspector',
+            description: 'Decode JWT headers and claims, inspect signatures with RS256/HS256 validation directly in browser memory.',
+            descI18n: 'tool.jwt_desc',
+            previewCode: 'dev.tool.jwt-claims',
+            tags: ['[Crypto] JWK / PEM']
+          }) %>
+
+          <%- include('./src/partials/tool-card.ejs', {
+            icon: '&#x2699;',
+            category: 'Converters',
+            categoryI18n: 'cat.converters',
+            badge: 'Instant',
+            badgeType: 'indigo',
+            title: 'UUID & ULID Generator',
+            description: 'Cryptographically secure v4/v7 UUID and timestamp-sortable ULID batch generation with format presets.',
+            descI18n: 'tool.uuid_desc',
+            previewCode: 'dev.tool.id-forge',
+            tags: ['[CSPRNG] Up to 10k/sec']
+          }) %>
+
+          <%- include('./src/partials/tool-card.ejs', {
+            icon: '&#x1F4DD;',
+            category: 'Formatters',
+            categoryI18n: 'cat.formatters',
+            badge: 'Realtime',
+            badgeType: 'indigo',
+            title: 'Markdown Live Previewer',
+            description: 'GFM compliant split-pane editor with KaTeX math rendering, mermaid diagram support, table generator, and export.',
+            descI18n: 'tool.markdown_desc',
+            previewCode: 'dev.tool.md-compiler',
+            tags: ['[Renderer] CommonMark']
+          }) %>
+
+          <%- include('./src/partials/tool-card.ejs', {
+            icon: '&#x253C;',
+            category: 'Web',
+            categoryI18n: 'cat.web',
+            badge: 'Instant',
+            badgeType: 'indigo',
+            title: 'CSS Flexbox & Grid Generator',
+            description: 'Interactive visual builder for CSS flex layouts and subgrids with copy-ready Tailwind CSS utility classes.',
+            descI18n: 'tool.css_desc',
+            previewCode: 'dev.tool.layout-matrix',
+            tags: ['[Interactive] Tailwind v3+']
+          }) %>
+
+          <%- include('./src/partials/tool-card.ejs', {
+            icon: '#',
+            category: 'Security',
+            categoryI18n: 'cat.security',
+            badge: 'WebCrypto',
+            badgeType: 'indigo',
+            title: 'Hash & HMAC Calculator',
+            description: 'Compute SHA-256, SHA-512, MD5, and secret-keyed HMAC digests using hardware-accelerated WebCrypto.',
+            descI18n: 'tool.hash_desc',
+            previewCode: 'dev.tool.hash-suite',
+            tags: ['[Hardware] SubtleCrypto']
+          }) %>
+
+          <%- include('./src/partials/tool-card.ejs', {
+            icon: 'GD',
+            category: 'Encoders',
+            categoryI18n: 'cat.encoders',
+            badge: '0ms Client',
+            badgeType: 'success',
+            title: 'URL & Query Param Parser',
+            description: 'Dissect complex URLs, edit search parameters in table format, and generate safe-encoded deep links with ease.',
+            descI18n: 'tool.url_desc',
+            previewCode: 'dev.tool.uri-breakdown',
+            tags: ['[WHATWG] URLSearchParams']
+          }) %>
+
+        </div>
+      </section>
+
+      <footer class="catalog-pagination">
+        <span class="catalog-pagination__info" data-i18n="pagination.range">
+          Showing 1 - 9 of 24 utilities
+        </span>
+
+        <nav class="pagination" aria-label="Pagination Navigation">
+          <ul class="pagination__list">
+            <li class="pagination__item">
+              <a href="./tools.html?page=1" class="pagination__link pagination__link--disabled" aria-disabled="true" data-i18n="pagination.prev">
+                &larr; Previous
+              </a>
+            </li>
+            <li class="pagination__item">
+              <a href="./tools.html?page=1" class="pagination__link pagination__link--active" aria-current="page">1</a>
+            </li>
+            <li class="pagination__item">
+              <a href="./tools.html?page=2" class="pagination__link">2</a>
+            </li>
+            <li class="pagination__item">
+              <a href="./tools.html?page=3" class="pagination__link">3</a>
+            </li>
+            <li class="pagination__item pagination__item--ellipsis" aria-hidden="true">
+              <span>...</span>
+            </li>
+            <li class="pagination__item">
+              <a href="./tools.html?page=8" class="pagination__link">8</a>
+            </li>
+            <li class="pagination__item">
+              <a href="./tools.html?page=2" class="pagination__link" data-i18n="pagination.next">
+                Next &rarr;
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="density-selector">
+          <label for="density-select" class="density-selector__label" data-i18n="pagination.density">Density:</label>
+          <select id="density-select" name="density" class="density-selector__select">
+            <option value="9" selected>9 / page</option>
+            <option value="18">18 / page</option>
+            <option value="27">27 / page</option>
+          </select>
+        </div>
+      </footer>
+
+    </div>
+  </main>
+
+  <%- include('./src/partials/footer.ejs') %>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<article class="tool-card" itemscope itemtype="https://schema.org/SoftwareApplication">
+  <header class="tool-card__header">
+    <div class="tool-card__meta">
+      <span class="tool-card__category-icon" aria-hidden="true"><%= icon %></span>
+      <span class="tool-card__category" itemprop="applicationCategory" data-i18n="<%= categoryI18n %>"><%= category %></span>
+    </div>
+    <span class="tool-card__badge tool-card__badge--<%= badgeType %>"><%= badge %></span>
+  </header>
+
+  <h3 class="tool-card__title" itemprop="name">
+    <a href="./tool-details.html" class="tool-card__link"><%= title %></a>
+  </h3>
+  
+  <p class="tool-card__description" itemprop="description" data-i18n="<%= descI18n %>">
+    <%= description %>
+  </p>
+
+  <div class="tool-card__code-preview" aria-hidden="true">
+    <code><%= previewCode %></code>
+  </div>
+
+  <footer class="tool-card__footer">
+    <ul class="tool-card__tags" aria-label="Tool specifications">
+      <% tags.forEach(function(tag) { %>
+        <li class="tool-card__tag"><%= tag %></li>
+      <% }); %>
+    </ul>
+    <a href="./tool-details.html" class="tool-card__action" aria-label="Open <%= title %>">
+      <span data-i18n="tools.open_cta">Open Tool</span>
+      <span aria-hidden="true">&rarr;</span>
+    </a>
+  </footer>
+</article>
