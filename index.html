@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Instant, offline-first client-side developer tooling. Run deterministic parsing, cryptographic hashing, and format verification locally.">
+  <title>DevForge — Essential Micro-Utilities for Modern Developers</title>
+  <script type="module" crossorigin src="/assets/main-CncTezCV.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/main-D_xAfgBH.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="header__inner">
+    <a href="./index.html" class="header__brand" aria-label="DevForge Home">
+      <span class="header__logo-icon" aria-hidden="true">&lt;/&gt;</span>
+      <span class="header__logo-text" data-i18n="brand.name">DevForge</span>
+    </a>
+
+   
+
+    <nav class="header__nav nav" aria-label="Main navigation">
+      <ul class="nav__list">
+        <li class="nav__item">
+          <a href="./index.html" class="nav__link nav__link--active" aria-current=&#34;page&#34;>
+            <span class="nav__icon" aria-hidden="true">&#x2302;</span>
+            <span data-i18n="nav.home">Home</span>
+          </a>
+        </li>
+        <li class="nav__item">
+          <a href="./tools.html" class="nav__link " >
+            <span class="nav__icon" aria-hidden="true">&#x2692;</span>
+            <span data-i18n="nav.tools">Tools</span>
+          </a>
+        </li>
+        <li class="nav__item">
+          <a href="./about.html" class="nav__link " >
+            <span class="nav__icon" aria-hidden="true">&#x24D8;</span>
+            <span data-i18n="nav.about">About</span>
+          </a>
+        </li>
+      </ul>
+    </nav> 
+
+    <div class="header__actions">
+      <form class="header__search-form search-bar" role="search" action="./tools.html" method="get">
+        <label for="global-search" class="visually-hidden" data-i18n="search.label">Search tools</label>
+        <span class="search-bar__icon" aria-hidden="true">&#x1F50D;</span>
+        <input 
+          type="search" 
+          id="global-search" 
+          name="q" 
+          class="search-bar__input" 
+          placeholder="Filter dev tools, regex, enc..." 
+          data-i18n="search.placeholder"
+        >
+        <kbd class="search-bar__shortcut">Ctrl+K</kbd>
+      </form>
+
+      <div class="header__controls">
+        <button type="button" class="btn-icon" aria-label="Inspect components" title="Inspect">
+          <span aria-hidden="true">&lt;&gt;</span>
+        </button>
+        <button type="button" class="btn-icon" aria-label="Toggle theme" title="Toggle theme">
+          <span aria-hidden="true">&#x25D0;</span>
+        </button>
+        <a href="./tool-details.html" class="btn-icon btn-icon--profile" aria-label="User workspace">
+          <span aria-hidden="true">&#x1F464;</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  <main class="main-content">
+
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__container">
+        <div class="hero__badge">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span class="hero__badge-text" data-i18n="hero.badge">OFFLINE-FIRST &bull; ZERO TELEMETRY &bull; WASM POWERED</span>
+        </div>
+
+        <h1 id="hero-title" class="hero__title" data-i18n="hero.title">
+          Essential Micro-Utilities for Modern Developers
+        </h1>
+
+        <p class="hero__description" data-i18n="hero.subtitle">
+          Instant, offline-first client-side developer tooling. Run deterministic parsing, cryptographic hashing, and format verification entirely in your local sandbox.
+        </p>
+
+        <form class="hero__search search-box" role="search" action="./tools.html" method="get">
+          <label for="hero-search-input" class="visually-hidden" data-i18n="search.hero_label">Search developer tools</label>
+          <span class="search-box__icon" aria-hidden="true">&#x1F50D;</span>
+          <input 
+            type="search" 
+            id="hero-search-input" 
+            name="q" 
+            class="search-box__input" 
+            placeholder="Search developer tools" 
+            data-i18n="search.hero_placeholder"
+          >
+        </form>
+
+        <nav class="hero__categories category-chips" aria-label="Popular tool categories">
+          <ul class="category-chips__list">
+            <li><a href="./tools.html?cat=json" class="category-chip" data-i18n="cat.json">JSON Tools</a></li>
+            <li><a href="./tools.html?cat=crypto" class="category-chip" data-i18n="cat.crypto">Cryptography</a></li>
+            <li><a href="./tools.html?cat=encoders" class="category-chip" data-i18n="cat.encoders">Text Encoders</a></li>
+            <li><a href="./tools.html?cat=web" class="category-chip" data-i18n="cat.web">Web Utilities</a></li>
+            <li><a href="./tools.html?cat=css" class="category-chip" data-i18n="cat.css">CSS Generators</a></li>
+            <li><a href="./tools.html?cat=auth" class="category-chip" data-i18n="cat.auth">Tokens &amp; Auth</a></li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+
+    <section class="platform-metrics" aria-label="Platform capabilities">
+      <div class="platform-metrics__container">
+        <ul class="platform-metrics__list">
+          <li class="metric-item">
+            <strong class="metric-item__value">50+</strong>
+            <span class="metric-item__label" data-i18n="metrics.tools">MICRO-UTILITIES</span>
+          </li>
+          <li class="metric-item">
+            <strong class="metric-item__value">0ms</strong>
+            <span class="metric-item__label" data-i18n="metrics.latency">SERVER LATENCY</span>
+          </li>
+          <li class="metric-item">
+            <strong class="metric-item__value">100%</strong>
+            <span class="metric-item__label" data-i18n="metrics.execution">LOCAL EXECUTION</span>
+          </li>
+          <li class="metric-item">
+            <strong class="metric-item__value">Apache 2.0</strong>
+            <span class="metric-item__label" data-i18n="metrics.license">OPEN SOURCE</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="featured-tools" aria-labelledby="featured-tools-title">
+      <div class="featured-tools__container">
+        <div class="featured-tools__header">
+          <div>
+            <span class="section-tag" data-i18n="featured.tag">CORE TOOLKIT</span>
+            <h2 id="featured-tools-title" class="featured-tools__title" data-i18n="featured.title">Featured Developer Tools</h2>
+          </div>
+          <p class="featured-tools__runtime-note" data-i18n="featured.runtime">Real-time WASM pipeline &bull; Sandboxed runtime</p>
+        </div>
+
+        <div class="featured-tools__grid">
+          <article class="tool-card" itemscope itemtype="https://schema.org/SoftwareApplication">
+  <header class="tool-card__header">
+    <div class="tool-card__meta">
+      <span class="tool-card__category-icon" aria-hidden="true">{ }</span>
+      <span class="tool-card__category" itemprop="applicationCategory" data-i18n="cat.formatter">Formatter</span>
+    </div>
+    <span class="tool-card__badge tool-card__badge--success">0ms (Client)</span>
+  </header>
+
+  <h3 class="tool-card__title" itemprop="name">
+    <a href="./tool-details.html" class="tool-card__link">JSON Formatter &amp; Validator</a>
+  </h3>
+  
+  <p class="tool-card__description" itemprop="description" data-i18n="tool.json_desc">
+    Clean, validate, format, and convert raw JSON payloads with instant tree view and schema validation.
+  </p>
+
+  <div class="tool-card__code-preview" aria-hidden="true">
+    <code>{ &#34;status&#34;: 200, &#34;valid&#34;: true }</code>
+  </div>
+
+  <footer class="tool-card__footer">
+    <ul class="tool-card__tags" aria-label="Tool specifications">
+      
+        <li class="tool-card__tag">v1.8</li>
+      
+        <li class="tool-card__tag">UTF-8</li>
+      
+    </ul>
+    <a href="./tool-details.html" class="tool-card__action" aria-label="Open JSON Formatter &amp; Validator">
+      <span data-i18n="tools.open_cta">Open Tool</span>
+      <span aria-hidden="true">&rarr;</span>
+    </a>
+  </footer>
+</article>
+
+
+          <article class="tool-card" itemscope itemtype="https://schema.org/SoftwareApplication">
+  <header class="tool-card__header">
+    <div class="tool-card__meta">
+      <span class="tool-card__category-icon" aria-hidden="true">[.*]</span>
+      <span class="tool-card__category" itemprop="applicationCategory" data-i18n="cat.regex">RegEx</span>
+    </div>
+    <span class="tool-card__badge tool-card__badge--indigo">WASM Fast</span>
+  </header>
+
+  <h3 class="tool-card__title" itemprop="name">
+    <a href="./tool-details.html" class="tool-card__link">RegEx Visualizer &amp; Live Tester</a>
+  </h3>
+  
+  <p class="tool-card__description" itemprop="description" data-i18n="tool.regex_desc">
+    Real-time regular expression match evaluator with AST decomposition and zero-backtracking alerts.
+  </p>
+
+  <div class="tool-card__code-preview" aria-hidden="true">
+    <code>/(?:[a-z0-9_]+)/g</code>
+  </div>
+
+  <footer class="tool-card__footer">
+    <ul class="tool-card__tags" aria-label="Tool specifications">
+      
+        <li class="tool-card__tag">PCRE2</li>
+      
+        <li class="tool-card__tag">ECMAScript</li>
+      
+    </ul>
+    <a href="./tool-details.html" class="tool-card__action" aria-label="Open RegEx Visualizer &amp; Live Tester">
+      <span data-i18n="tools.open_cta">Open Tool</span>
+      <span aria-hidden="true">&rarr;</span>
+    </a>
+  </footer>
+</article>
+
+
+          <article class="tool-card" itemscope itemtype="https://schema.org/SoftwareApplication">
+  <header class="tool-card__header">
+    <div class="tool-card__meta">
+      <span class="tool-card__category-icon" aria-hidden="true">&lt;/&gt;</span>
+      <span class="tool-card__category" itemprop="applicationCategory" data-i18n="cat.encoders">Text Encoders</span>
+    </div>
+    <span class="tool-card__badge tool-card__badge--success">0ms</span>
+  </header>
+
+  <h3 class="tool-card__title" itemprop="name">
+    <a href="./tool-details.html" class="tool-card__link">Base64 Encoder / Decoder</a>
+  </h3>
+  
+  <p class="tool-card__description" itemprop="description" data-i18n="tool.base64_desc">
+    Convert text, binaries, and images to/from RFC 4648 Base64 strings with UTF-8 and URL-safe modes.
+  </p>
+
+  <div class="tool-card__code-preview" aria-hidden="true">
+    <code>SGVsbG8gV29ybGQ=</code>
+  </div>
+
+  <footer class="tool-card__footer">
+    <ul class="tool-card__tags" aria-label="Tool specifications">
+      
+        <li class="tool-card__tag">RFC 4648</li>
+      
+        <li class="tool-card__tag">Hex view</li>
+      
+    </ul>
+    <a href="./tool-details.html" class="tool-card__action" aria-label="Open Base64 Encoder / Decoder">
+      <span data-i18n="tools.open_cta">Open Tool</span>
+      <span aria-hidden="true">&rarr;</span>
+    </a>
+  </footer>
+</article>
+
+
+          <article class="tool-card" itemscope itemtype="https://schema.org/SoftwareApplication">
+  <header class="tool-card__header">
+    <div class="tool-card__meta">
+      <span class="tool-card__category-icon" aria-hidden="true">&#x1F511;</span>
+      <span class="tool-card__category" itemprop="applicationCategory" data-i18n="cat.crypto">Cryptography</span>
+    </div>
+    <span class="tool-card__badge tool-card__badge--success">100% Client</span>
+  </header>
+
+  <h3 class="tool-card__title" itemprop="name">
+    <a href="./tool-details.html" class="tool-card__link">JWT Debugger &amp; Inspector</a>
+  </h3>
+  
+  <p class="tool-card__description" itemprop="description" data-i18n="tool.jwt_desc">
+    Decode JSON Web Tokens, inspect headers, payload claims, expiration timestamps, and verify HMAC/RSA signatures locally.
+  </p>
+
+  <div class="tool-card__code-preview" aria-hidden="true">
+    <code>alg: HS256, typ: JWT</code>
+  </div>
+
+  <footer class="tool-card__footer">
+    <ul class="tool-card__tags" aria-label="Tool specifications">
+      
+        <li class="tool-card__tag">Zero API dispatch</li>
+      
+    </ul>
+    <a href="./tool-details.html" class="tool-card__action" aria-label="Open JWT Debugger &amp; Inspector">
+      <span data-i18n="tools.open_cta">Open Tool</span>
+      <span aria-hidden="true">&rarr;</span>
+    </a>
+  </footer>
+</article>
+
+
+          <article class="tool-card" itemscope itemtype="https://schema.org/SoftwareApplication">
+  <header class="tool-card__header">
+    <div class="tool-card__meta">
+      <span class="tool-card__category-icon" aria-hidden="true">&#x2699;</span>
+      <span class="tool-card__category" itemprop="applicationCategory" data-i18n="cat.generators">Generators</span>
+    </div>
+    <span class="tool-card__badge tool-card__badge--indigo">Instant</span>
+  </header>
+
+  <h3 class="tool-card__title" itemprop="name">
+    <a href="./tool-details.html" class="tool-card__link">UUID v4 / v7 Generator</a>
+  </h3>
+  
+  <p class="tool-card__description" itemprop="description" data-i18n="tool.uuid_desc">
+    Bulk cryptographically secure UUID and ULID generator with case formatting, timestamp sorting, and dash toggles.
+  </p>
+
+  <div class="tool-card__code-preview" aria-hidden="true">
+    <code>f47ac10b-58cc-4372-a567-0e02b2c3d479</code>
+  </div>
+
+  <footer class="tool-card__footer">
+    <ul class="tool-card__tags" aria-label="Tool specifications">
+      
+        <li class="tool-card__tag">WebCrypto CSPRNG</li>
+      
+    </ul>
+    <a href="./tool-details.html" class="tool-card__action" aria-label="Open UUID v4 / v7 Generator">
+      <span data-i18n="tools.open_cta">Open Tool</span>
+      <span aria-hidden="true">&rarr;</span>
+    </a>
+  </footer>
+</article>
+
+
+          <article class="tool-card" itemscope itemtype="https://schema.org/SoftwareApplication">
+  <header class="tool-card__header">
+    <div class="tool-card__meta">
+      <span class="tool-card__category-icon" aria-hidden="true">&#x1F4DD;</span>
+      <span class="tool-card__category" itemprop="applicationCategory" data-i18n="cat.web">Web Utilities</span>
+    </div>
+    <span class="tool-card__badge tool-card__badge--indigo">Realtime</span>
+  </header>
+
+  <h3 class="tool-card__title" itemprop="name">
+    <a href="./tool-details.html" class="tool-card__link">Markdown Live Previewer</a>
+  </h3>
+  
+  <p class="tool-card__description" itemprop="description" data-i18n="tool.markdown_desc">
+    GitHub-flavored Markdown editor with split live rendering, KaTeX math formulas, syntax styling, and HTML export.
+  </p>
+
+  <div class="tool-card__code-preview" aria-hidden="true">
+    <code>## Preview mode active</code>
+  </div>
+
+  <footer class="tool-card__footer">
+    <ul class="tool-card__tags" aria-label="Tool specifications">
+      
+        <li class="tool-card__tag">GFM</li>
+      
+        <li class="tool-card__tag">KaTeX</li>
+      
+    </ul>
+    <a href="./tool-details.html" class="tool-card__action" aria-label="Open Markdown Live Previewer">
+      <span data-i18n="tools.open_cta">Open Tool</span>
+      <span aria-hidden="true">&rarr;</span>
+    </a>
+  </footer>
+</article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="tech-highlight" aria-labelledby="workstation-title">
+      <picture class="tech-highlight__graphic">
+        <source 
+          media="(min-width: 1280px)" 
+          srcset="/assets/architecture-diagram-desktop-Bt5q2yK7.webp 1x, /assets/architecture-diagram-desktop@2x-IXm69Mxc.webp 2x" 
+          type="image/webp"
+        >
+        <source 
+          media="(min-width: 768px)" 
+          srcset="/assets/architecture-diagram-tablet-Bg42Jbkl.webp 1x, /assets/architecture-diagram-tablet@2x-BeN8DVlY.webp 2x" 
+          type="image/webp"
+        >
+        <source 
+          srcset="/assets/architecture-diagram-mobile-CuZibK_i.webp 1x, /assets/architecture-diagram-mobile@2x-Dh1e7ACb.webp 2x" 
+          type="image/webp"
+        >
+        <img 
+          class="tech-highlight__img" 
+          src="/assets/architecture-diagram-desktop-CRNHW6z7.png" 
+          alt="DevForge WebAssembly isolated execution pipeline architecture schema" 
+          width="1248" 
+          height="360" 
+          loading="lazy"
+        >
+</picture>
+      <div class="tech-highlight__container">
+        <div class="tech-highlight__content">
+          <span class="section-tag" data-i18n="highlight.tag">DETERMINISTIC EXECUTION</span>
+          <h2 id="workstation-title" class="tech-highlight__title" data-i18n="highlight.title">
+            Zero round-trips. Your workstation is the execution host.
+          </h2>
+          <p class="tech-highlight__description" data-i18n="highlight.desc">
+            DevForge operates inside a strictly isolated browser worker pipeline. We compile Rust parsers directly into WebAssembly, meaning heavy AST operations happen with native C-speed while keeping corporate data strictly confidential.
+          </p>
+          <div class="tech-highlight__actions">
+            <a href="./tools.html" class="btn btn--primary" data-i18n="highlight.explore_cta">Discover over 50+ tools</a>
+            <a href="./about.html" class="btn btn--secondary" data-i18n="highlight.security_cta">Read Security Manifest &rarr;</a>
+          </div>
+        </div>
+
+        <aside class="tech-highlight__terminal terminal-card" aria-label="Benchmark execution output">
+          <div class="terminal-card__header">
+            <div class="terminal-card__controls" aria-hidden="true">
+              <span class="terminal-dot terminal-dot--red"></span>
+              <span class="terminal-dot terminal-dot--yellow"></span>
+              <span class="terminal-dot terminal-dot--green"></span>
+            </div>
+            <span class="terminal-card__title">Local Web Worker Pipeline</span>
+            <span class="terminal-card__badge">Thread: WASM_ISOLATE_0</span>
+          </div>
+          <pre class="terminal-card__body"><code><span class="terminal-card__cmd">$ devforge bench --suite all</span>
+<span class="terminal-card__success">&#x2022; [JSON-AST] 10MB payload parse: 1.4ms</span>
+<span class="terminal-card__success">&#x2022; [REGEX-PCRE] Backtracking sanity check: 0.2ms</span>
+<span class="terminal-card__success">&#x2022; [CRYPTO-HASH] SHA-512 stream: 0.9ms</span>
+<span class="terminal-card__notice">&#x2022; Outbound network sockets blocked: 0 bytes transferred</span></code></pre>
+          <div class="terminal-card__footer">
+            <span>Network Activity: <strong>Strict 0.0 KB (Completely Offline)</strong></span>
+            <span class="terminal-card__status">SUCCESS (100%)</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="features" aria-labelledby="features-title">
+      <div class="features__container">
+        <div class="features__header">
+          <span class="section-tag" data-i18n="features.tag">ENGINEERED FOR DEVELOPERS</span>
+          <h2 id="features-title" class="features__title" data-i18n="features.title">Why Engineers Prefer DevForge</h2>
+          <p class="features__subtitle" data-i18n="features.subtitle">
+            No advertisements. No subscriptions. No pasting confidential tokens into dubious third-party cloud servers.
+          </p>
+        </div>
+
+        <div class="features__grid">
+          <article class="feature-card">
+            <div class="feature-card__icon" aria-hidden="true">&#x1F6E1;</div>
+            <h3 class="feature-card__title" data-i18n="features.card1_title">100% Client-Side Privacy</h3>
+            <p class="feature-card__description" data-i18n="features.card1_desc">
+              Your code, tokens, private keys, and data payloads never leave your browser sandbox. Zero API calls, zero server telemetry logs, zero analytics beacons.
+            </p>
+            <span class="feature-card__meta">&bull; Zero Cloud Retention</span>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-card__icon" aria-hidden="true">&#x26A1;</div>
+            <h3 class="feature-card__title" data-i18n="features.card2_title">Zero Dependencies</h3>
+            <p class="feature-card__description" data-i18n="features.card2_desc">
+              Ultra-lightweight WebAssembly and native Web API micro-engines deliver sub-millisecond execution with zero framework bloat or third-party trackers.
+            </p>
+            <span class="feature-card__meta">&bull; Instant WASM Engine</span>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-card__icon" aria-hidden="true">&#x2934;</div>
+            <h3 class="feature-card__title" data-i18n="features.card3_title">Open Source Snippets</h3>
+            <p class="feature-card__description" data-i18n="features.card3_desc">
+              Every utility is backed by transparent, peer-reviewed TypeScript and Rust source code ready to audit, fork, or embed inside your internal CLI tooling.
+            </p>
+            <span class="feature-card__meta">&bull; Apache 2.0 Licensure</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <aside class="hotkeys-bar" aria-label="Quick keyboard shortcuts">
+      <div class="hotkeys-bar__container">
+        <div class="hotkeys-bar__info">
+          <span class="hotkeys-bar__icon" aria-hidden="true">&#x2328;</span>
+          <div>
+            <strong class="hotkeys-bar__title" data-i18n="hotkeys.title">Speed Navigation</strong>
+            <p class="hotkeys-bar__hint" data-i18n="hotkeys.hint">Keep your hands on the keyboard for rapid switching.</p>
+          </div>
+        </div>
+        <ul class="hotkeys-bar__list">
+          <li><kbd>Ctrl</kbd> + <kbd>K</kbd> <span data-i18n="hotkeys.quick">Quick Search</span></li>
+          <li><kbd>/</kbd> <span data-i18n="hotkeys.focus">Focus Filter</span></li>
+          <li><kbd>Esc</kbd> <span data-i18n="hotkeys.reset">Reset Canvas</span></li>
+        </ul>
+      </div>
+    </aside>
+
+  </main>
+
+  <footer class="footer">
+  <div class="footer__container">
+    <div class="footer__brand-block">
+      <a href="./index.html" class="footer__brand-logo" aria-label="DevForge Home">
+        <span aria-hidden="true">&lt;/&gt;</span> DevForge
+      </a>
+      <p class="footer__tagline" data-i18n="footer.tagline">
+        A utilitarian developer workspace crafted for deterministic component development, code analysis, and high-speed tooling.
+      </p>
+      <p class="footer__release-info">
+        Released under the <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer">MIT License</a> &bull; DevForge Engine v2.4.0
+      </p>
+    </div>
+
+    <nav class="footer__nav" aria-label="Footer navigation">
+      <div class="footer__nav-group">
+        <h4 class="footer__group-title" data-i18n="footer.workspace">Workspace</h4>
+        <ul class="footer__link-list">
+          <li><a href="./tools.html" class="footer__link">Architecture Visualizer</a></li>
+          <li><a href="./tools.html" class="footer__link">Token Inspector</a></li>
+          <li><a href="./tools.html" class="footer__link">API Schema Validator</a></li>
+          <li><a href="./tools.html" class="footer__link">Telemetry Stream</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__nav-group">
+        <h4 class="footer__group-title" data-i18n="footer.docs">Documentation</h4>
+        <ul class="footer__link-list">
+          <li><a href="./about.html" class="footer__link">CLI Guide &amp; Setup</a></li>
+          <li><a href="./about.html" class="footer__link">Tailwind Design System</a></li>
+          <li><a href="./about.html" class="footer__link">Keyboard Navigation</a></li>
+          <li><a href="./about.html" class="footer__link">Extension Architecture</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__nav-group">
+        <h4 class="footer__group-title" data-i18n="footer.ecosystem">Ecosystem</h4>
+        <ul class="footer__link-list">
+          <li><a href="https://github.com" class="footer__link" target="_blank" rel="noopener noreferrer">GitHub Repository</a></li>
+          <li><a href="./about.html" class="footer__link">Release Notes</a></li>
+          <li><a href="https://github.com" class="footer__link" target="_blank" rel="noopener noreferrer">Issue Tracker</a></li>
+          <li><a href="./about.html" class="footer__link">MIT License Agreement</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <div class="footer__bottom">
+    <p class="footer__copyright">
+      &copy; 2026 DevForge Project contributors. All rights reserved.
+    </p>
+  </div>
+</footer>
+
+
+</body>
+</html>

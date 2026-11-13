@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse all instant browser-based micro-tools for formatting, cryptographic hashing, encoding, and conversion.">
+  <title>DevForge — All Developer Utilities</title>
+  <script type="module" crossorigin src="/assets/main-CncTezCV.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/main-D_xAfgBH.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="header__inner">
+    <a href="./index.html" class="header__brand" aria-label="DevForge Home">
+      <span class="header__logo-icon" aria-hidden="true">&lt;/&gt;</span>
+      <span class="header__logo-text" data-i18n="brand.name">DevForge</span>
+    </a>
+
+   
+
+    <nav class="header__nav nav" aria-label="Main navigation">
+      <ul class="nav__list">
+        <li class="nav__item">
+          <a href="./index.html" class="nav__link " >
+            <span class="nav__icon" aria-hidden="true">&#x2302;</span>
+            <span data-i18n="nav.home">Home</span>
+          </a>
+        </li>
+        <li class="nav__item">
+          <a href="./tools.html" class="nav__link nav__link--active" aria-current=&#34;page&#34;>
+            <span class="nav__icon" aria-hidden="true">&#x2692;</span>
+            <span data-i18n="nav.tools">Tools</span>
+          </a>
+        </li>
+        <li class="nav__item">
+          <a href="./about.html" class="nav__link " >
+            <span class="nav__icon" aria-hidden="true">&#x24D8;</span>
+            <span data-i18n="nav.about">About</span>
+          </a>
+        </li>
+      </ul>
+    </nav> 
+
+    <div class="header__actions">
+      <form class="header__search-form search-bar" role="search" action="./tools.html" method="get">
+        <label for="global-search" class="visually-hidden" data-i18n="search.label">Search tools</label>
+        <span class="search-bar__icon" aria-hidden="true">&#x1F50D;</span>
+        <input 
+          type="search" 
+          id="global-search" 
+          name="q" 
+          class="search-bar__input" 
+          placeholder="Filter dev tools, regex, enc..." 
+          data-i18n="search.placeholder"
+        >
+        <kbd class="search-bar__shortcut">Ctrl+K</kbd>
+      </form>
+
+      <div class="header__controls">
+        <button type="button" class="btn-icon" aria-label="Inspect components" title="Inspect">
+          <span aria-hidden="true">&lt;&gt;</span>
+        </button>
+        <button type="button" class="btn-icon" aria-label="Toggle theme" title="Toggle theme">
+          <span aria-hidden="true">&#x25D0;</span>
+        </button>
+        <a href="./tool-details.html" class="btn-icon btn-icon--profile" aria-label="User workspace">
+          <span aria-hidden="true">&#x1F464;</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  <main class="main-content">
+    <div class="catalog-container">
+
+      <nav class="breadcrumbs" aria-label="Breadcrumb navigation">
+        <ol class="breadcrumbs__list">
+          <li class="breadcrumbs__item">
+            <a href="./index.html" class="breadcrumbs__link" data-i18n="breadcrumb.home">Home</a>
+          </li>
+          <li class="breadcrumbs__item">
+            <a href="./tools.html" class="breadcrumbs__link" data-i18n="breadcrumb.tools">Tools</a>
+          </li>
+          <li class="breadcrumbs__item" aria-current="page">
+            <span class="breadcrumbs__current" data-i18n="breadcrumb.all_utilities">All Utilities</span>
+          </li>
+        </ol>
+      </nav>
+
+      <header class="page-header">
+        <div class="page-header__title-row">
+          <div class="page-header__headings">
+            <div class="page-header__badge-wrap">
+              <h1 class="page-header__title" data-i18n="catalog.title">All Developer Utilities</h1>
+              <span class="version-badge">v2.4.0</span>
+            </div>
+            <p class="page-header__description" data-i18n="catalog.subtitle">
+              Instant browser-based micro-tools for formatting, cryptographic hashing, encoding, and conversion. Zero data leaks, zero telemetry tracking.
+            </p>
+          </div>
+
+          <aside class="page-header__status-panel" aria-label="Catalog operational status">
+            <span class="status-indicator">
+              <span class="status-indicator__dot status-indicator__dot--green" aria-hidden="true"></span>
+              <span data-i18n="status.engine">0ms Latency Engine</span>
+            </span>
+            <span class="status-indicator__counter" data-i18n="status.counter">
+              Showing 24 of 54 tools
+            </span>
+          </aside>
+        </div>
+      </header>
+
+      <section class="catalog-controls" aria-label="Catalog filters and search">
+        <form class="catalog-controls__form" role="search" action="./tools.html" method="get">
+          
+          <div class="catalog-controls__top-row">
+            <div class="catalog-search">
+              <label for="catalog-search-input" class="visually-hidden" data-i18n="catalog.search_label">Search tools by keyword</label>
+              <span class="catalog-search__icon" aria-hidden="true">&#x1F50D;</span>
+              <input 
+                type="search" 
+                id="catalog-search-input" 
+                name="search" 
+                class="catalog-search__input" 
+                placeholder="Search by name, utility keyword (e.g. 'sha256', 'pretty', 'uuid')..." 
+                data-i18n="catalog.search_placeholder"
+              >
+              <kbd class="catalog-search__hint">Press /</kbd>
+            </div>
+
+            <div class="catalog-controls__badge">
+              <span aria-hidden="true">&#x1F6E1;</span>
+              <span data-i18n="catalog.offline_status">100% Offline Ready</span>
+            </div>
+
+            <div class="catalog-sort">
+              <label for="sort-select" class="catalog-sort__label" data-i18n="catalog.sort_label">Sort:</label>
+              <select id="sort-select" name="sort" class="catalog-sort__select">
+                <option value="popular" selected data-i18n="sort.popular">Most Popular</option>
+                <option value="name_asc" data-i18n="sort.name_asc">Name (A-Z)</option>
+                <option value="name_desc" data-i18n="sort.name_desc">Name (Z-A)</option>
+                <option value="fastest" data-i18n="sort.fastest">Lowest Latency</option>
+              </select>
+            </div>
+
+            <div class="view-toggle" role="group" aria-label="Layout view switcher">
+              <button type="button" class="view-toggle__btn view-toggle__btn--active" aria-label="Grid view" title="Grid view" aria-pressed="true">
+                <span aria-hidden="true">&#x25A6;</span>
+              </button>
+              <button type="button" class="view-toggle__btn" aria-label="List view" title="List view" aria-pressed="false">
+                <span aria-hidden="true">&#x2630;</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="filter-tabs" role="tablist" aria-label="Filter tools by category">
+            <button type="button" role="tab" aria-selected="true" class="filter-chip filter-chip--active" data-i18n="tab.all">
+              <span aria-hidden="true">&#x2637;</span> All <span class="filter-chip__count">24</span>
+            </button>
+            <button type="button" role="tab" aria-selected="false" class="filter-chip" data-i18n="tab.formatters">
+              <span aria-hidden="true">&#x2263;</span> Formatters <span class="filter-chip__count">4</span>
+            </button>
+            <button type="button" role="tab" aria-selected="false" class="filter-chip" data-i18n="tab.converters">
+              <span aria-hidden="true">&#x21C4;</span> Converters <span class="filter-chip__count">4</span>
+            </button>
+            <button type="button" role="tab" aria-selected="false" class="filter-chip" data-i18n="tab.security">
+              <span aria-hidden="true">&#x1F512;</span> Security <span class="filter-chip__count">5</span>
+            </button>
+            <button type="button" role="tab" aria-selected="false" class="filter-chip" data-i18n="tab.encoders">
+              <span aria-hidden="true">&#x25C7;</span> Encoders <span class="filter-chip__count">4</span>
+            </button>
+            <button type="button" role="tab" aria-selected="false" class="filter-chip" data-i18n="tab.web">
+              <span aria-hidden="true">&#x25A4;</span> Web <span class="filter-chip__count">5</span>
+            </button>
+          </div>
+
+        </form>
+      </section>
+
+      <section class="catalog-grid" aria-label="Utilities showcase">
+        <h2 class="visually-hidden" data-i18n="catalog.grid_heading">Tools List</h2>
+
+        <div class="catalog-grid__items">
+          
+          <article class="tool-card" itemscope itemtype="https://schema.org/SoftwareApplication">
+  <header class="tool-card__header">
+    <div class="tool-card__meta">
+      <span class="tool-card__category-icon" aria-hidden="true">{ }</span>
+      <span class="tool-card__category" itemprop="applicationCategory" data-i18n="cat.formatters">Formatters</span>
+    </div>
+    <span class="tool-card__badge tool-card__badge--success">0ms Client</span>
+  </header>
+
+  <h3 class="tool-card__title" itemprop="name">
+    <a href="./tool-details.html" class="tool-card__link">JSON Formatter &amp; Validator</a>
+  </h3>
+  
+  <p class="tool-card__description" itemprop="description" data-i18n="tool.json_desc">
+    Minify, prettify, inspect schema, and repair broken JSON trees with zero telemetry and instant syntax checks.
+  </p>
+
+  <div class="tool-card__code-preview" aria-hidden="true">
+    <code>dev.tool.json-formatter</code>
+  </div>
+
+  <footer class="tool-card__footer">
+    <ul class="tool-card__tags" aria-label="Tool specifications">
+      
+        <li class="tool-card__tag">[Local] v1.8</li>
+      
+    </ul>
+    <a href="./tool-details.html" class="tool-card__action" aria-label="Open JSON Formatter &amp; Validator">
+      <span data-i18n="tools.open_cta">Open Tool</span>
+      <span aria-hidden="true">&rarr;</span>
+    </a>
+  </footer>
+</article>
+
+
+          <article class="tool-card" itemscope itemtype="https://schema.org/SoftwareApplication">
+  <header class="tool-card__header">
+    <div class="tool-card__meta">
+      <span class="tool-card__category-icon" aria-hidden="true">(.*)</span>
+      <span class="tool-card__category" itemprop="applicationCategory" data-i18n="cat.web">Web</span>
+    </div>
+    <span class="tool-card__badge tool-card__badge--indigo">WASM Fast</span>
+  </header>
+
+  <h3 class="tool-card__title" itemprop="name">
+    <a href="./tool-details.html" class="tool-card__link">RegEx Visualizer &amp; Tester</a>
+  </h3>
+  
+  <p class="tool-card__description" itemprop="description" data-i18n="tool.regex_desc">
+    Interactive regular expression tester with colorized syntax trees, group capture breakdown, and AST visualization.
+  </p>
+
+  <div class="tool-card__code-preview" aria-hidden="true">
+    <code>dev.tool.regex-engine</code>
+  </div>
+
+  <footer class="tool-card__footer">
+    <ul class="tool-card__tags" aria-label="Tool specifications">
+      
+        <li class="tool-card__tag">[Rust/WASM] PCRE2</li>
+      
+    </ul>
+    <a href="./tool-details.html" class="tool-card__action" aria-label="Open RegEx Visualizer &amp; Tester">
+      <span data-i18n="tools.open_cta">Open Tool</span>
+      <span aria-hidden="true">&rarr;</span>
+    </a>
+  </footer>
+</article>
+
+
+          <article class="tool-card" itemscope itemtype="https://schema.org/SoftwareApplication">
+  <header class="tool-card__header">
+    <div class="tool-card__meta">
+      <span class="tool-card__category-icon" aria-hidden="true">&uarr;&darr;</span>
+      <span class="tool-card__category" itemprop="applicationCategory" data-i18n="cat.encoders">Encoders</span>
+    </div>
+    <span class="tool-card__badge tool-card__badge--success">0ms Client</span>
+  </header>
+
+  <h3 class="tool-card__title" itemprop="name">
+    <a href="./tool-details.html" class="tool-card__link">Base64 Encoder / Decoder</a>
+  </h3>
+  
+  <p class="tool-card__description" itemprop="description" data-i18n="tool.base64_desc">
+    Bi-directional UTF-8 and URL-safe Base64 conversion with multi-file drag &amp; drop and interactive payload inspect.
+  </p>
+
+  <div class="tool-card__code-preview" aria-hidden="true">
+    <code>dev.tool.base64-codec</code>
+  </div>
+
+  <footer class="tool-card__footer">
+    <ul class="tool-card__tags" aria-label="Tool specifications">
+      
+        <li class="tool-card__tag">[Stream] RFC 4648</li>
+      
+    </ul>
+    <a href="./tool-details.html" class="tool-card__action" aria-label="Open Base64 Encoder / Decoder">
+      <span data-i18n="tools.open_cta">Open Tool</span>
+      <span aria-hidden="true">&rarr;</span>
+    </a>
+  </footer>
+</article>
+
+
+          <article class="tool-card" itemscope itemtype="https://schema.org/SoftwareApplication">
+  <header class="tool-card__header">
+    <div class="tool-card__meta">
+      <span class="tool-card__category-icon" aria-hidden="true">&#x1F511;</span>
+      <span class="tool-card__category" itemprop="applicationCategory" data-i18n="cat.security">Security</span>
+    </div>
+    <span class="tool-card__badge tool-card__badge--success">100% Client</span>
+  </header>
+
+  <h3 class="tool-card__title" itemprop="name">
+    <a href="./tool-details.html" class="tool-card__link">JWT Debugger &amp; Inspector</a>
+  </h3>
+  
+  <p class="tool-card__description" itemprop="description" data-i18n="tool.jwt_desc">
+    Decode JWT headers and claims, inspect signatures with RS256/HS256 validation directly in browser memory.
+  </p>
+
+  <div class="tool-card__code-preview" aria-hidden="true">
+    <code>dev.tool.jwt-claims</code>
+  </div>
+
+  <footer class="tool-card__footer">
+    <ul class="tool-card__tags" aria-label="Tool specifications">
+      
+        <li class="tool-card__tag">[Crypto] JWK / PEM</li>
+      
+    </ul>
+    <a href="./tool-details.html" class="tool-card__action" aria-label="Open JWT Debugger &amp; Inspector">
+      <span data-i18n="tools.open_cta">Open Tool</span>
+      <span aria-hidden="true">&rarr;</span>
+    </a>
+  </footer>
+</article>
+
+
+          <article class="tool-card" itemscope itemtype="https://schema.org/SoftwareApplication">
+  <header class="tool-card__header">
+    <div class="tool-card__meta">
+      <span class="tool-card__category-icon" aria-hidden="true">&#x2699;</span>
+      <span class="tool-card__category" itemprop="applicationCategory" data-i18n="cat.converters">Converters</span>
+    </div>
+    <span class="tool-card__badge tool-card__badge--indigo">Instant</span>
+  </header>
+
+  <h3 class="tool-card__title" itemprop="name">
+    <a href="./tool-details.html" class="tool-card__link">UUID &amp; ULID Generator</a>
+  </h3>
+  
+  <p class="tool-card__description" itemprop="description" data-i18n="tool.uuid_desc">
+    Cryptographically secure v4/v7 UUID and timestamp-sortable ULID batch generation with format presets.
+  </p>
+
+  <div class="tool-card__code-preview" aria-hidden="true">
+    <code>dev.tool.id-forge</code>
+  </div>
+
+  <footer class="tool-card__footer">
+    <ul class="tool-card__tags" aria-label="Tool specifications">
+      
+        <li class="tool-card__tag">[CSPRNG] Up to 10k/sec</li>
+      
+    </ul>
+    <a href="./tool-details.html" class="tool-card__action" aria-label="Open UUID &amp; ULID Generator">
+      <span data-i18n="tools.open_cta">Open Tool</span>
+      <span aria-hidden="true">&rarr;</span>
+    </a>
+  </footer>
+</article>
+
+
+          <article class="tool-card" itemscope itemtype="https://schema.org/SoftwareApplication">
+  <header class="tool-card__header">
+    <div class="tool-card__meta">
+      <span class="tool-card__category-icon" aria-hidden="true">&#x1F4DD;</span>
+      <span class="tool-card__category" itemprop="applicationCategory" data-i18n="cat.formatters">Formatters</span>
+    </div>
+    <span class="tool-card__badge tool-card__badge--indigo">Realtime</span>
+  </header>
+
+  <h3 class="tool-card__title" itemprop="name">
+    <a href="./tool-details.html" class="tool-card__link">Markdown Live Previewer</a>
+  </h3>
+  
+  <p class="tool-card__description" itemprop="description" data-i18n="tool.markdown_desc">
+    GFM compliant split-pane editor with KaTeX math rendering, mermaid diagram support, table generator, and export.
+  </p>
+
+  <div class="tool-card__code-preview" aria-hidden="true">
+    <code>dev.tool.md-compiler</code>
+  </div>
+
+  <footer class="tool-card__footer">
+    <ul class="tool-card__tags" aria-label="Tool specifications">
+      
+        <li class="tool-card__tag">[Renderer] CommonMark</li>
+      
+    </ul>
+    <a href="./tool-details.html" class="tool-card__action" aria-label="Open Markdown Live Previewer">
+      <span data-i18n="tools.open_cta">Open Tool</span>
+      <span aria-hidden="true">&rarr;</span>
+    </a>
+  </footer>
+</article>
+
+
+          <article class="tool-card" itemscope itemtype="https://schema.org/SoftwareApplication">
+  <header class="tool-card__header">
+    <div class="tool-card__meta">
+      <span class="tool-card__category-icon" aria-hidden="true">&#x253C;</span>
+      <span class="tool-card__category" itemprop="applicationCategory" data-i18n="cat.web">Web</span>
+    </div>
+    <span class="tool-card__badge tool-card__badge--indigo">Instant</span>
+  </header>
+
+  <h3 class="tool-card__title" itemprop="name">
+    <a href="./tool-details.html" class="tool-card__link">CSS Flexbox &amp; Grid Generator</a>
+  </h3>
+  
+  <p class="tool-card__description" itemprop="description" data-i18n="tool.css_desc">
+    Interactive visual builder for CSS flex layouts and subgrids with copy-ready Tailwind CSS utility classes.
+  </p>
+
+  <div class="tool-card__code-preview" aria-hidden="true">
+    <code>dev.tool.layout-matrix</code>
+  </div>
+
+  <footer class="tool-card__footer">
+    <ul class="tool-card__tags" aria-label="Tool specifications">
+      
+        <li class="tool-card__tag">[Interactive] Tailwind v3+</li>
+      
+    </ul>
+    <a href="./tool-details.html" class="tool-card__action" aria-label="Open CSS Flexbox &amp; Grid Generator">
+      <span data-i18n="tools.open_cta">Open Tool</span>
+      <span aria-hidden="true">&rarr;</span>
+    </a>
+  </footer>
+</article>
+
+
+          <article class="tool-card" itemscope itemtype="https://schema.org/SoftwareApplication">
+  <header class="tool-card__header">
+    <div class="tool-card__meta">
+      <span class="tool-card__category-icon" aria-hidden="true">#</span>
+      <span class="tool-card__category" itemprop="applicationCategory" data-i18n="cat.security">Security</span>
+    </div>
+    <span class="tool-card__badge tool-card__badge--indigo">WebCrypto</span>
+  </header>
+
+  <h3 class="tool-card__title" itemprop="name">
+    <a href="./tool-details.html" class="tool-card__link">Hash &amp; HMAC Calculator</a>
+  </h3>
+  
+  <p class="tool-card__description" itemprop="description" data-i18n="tool.hash_desc">
+    Compute SHA-256, SHA-512, MD5, and secret-keyed HMAC digests using hardware-accelerated WebCrypto.
+  </p>
+
+  <div class="tool-card__code-preview" aria-hidden="true">
+    <code>dev.tool.hash-suite</code>
+  </div>
+
+  <footer class="tool-card__footer">
+    <ul class="tool-card__tags" aria-label="Tool specifications">
+      
+        <li class="tool-card__tag">[Hardware] SubtleCrypto</li>
+      
+    </ul>
+    <a href="./tool-details.html" class="tool-card__action" aria-label="Open Hash &amp; HMAC Calculator">
+      <span data-i18n="tools.open_cta">Open Tool</span>
+      <span aria-hidden="true">&rarr;</span>
+    </a>
+  </footer>
+</article>
+
+
+          <article class="tool-card" itemscope itemtype="https://schema.org/SoftwareApplication">
+  <header class="tool-card__header">
+    <div class="tool-card__meta">
+      <span class="tool-card__category-icon" aria-hidden="true">GD</span>
+      <span class="tool-card__category" itemprop="applicationCategory" data-i18n="cat.encoders">Encoders</span>
+    </div>
+    <span class="tool-card__badge tool-card__badge--success">0ms Client</span>
+  </header>
+
+  <h3 class="tool-card__title" itemprop="name">
+    <a href="./tool-details.html" class="tool-card__link">URL &amp; Query Param Parser</a>
+  </h3>
+  
+  <p class="tool-card__description" itemprop="description" data-i18n="tool.url_desc">
+    Dissect complex URLs, edit search parameters in table format, and generate safe-encoded deep links with ease.
+  </p>
+
+  <div class="tool-card__code-preview" aria-hidden="true">
+    <code>dev.tool.uri-breakdown</code>
+  </div>
+
+  <footer class="tool-card__footer">
+    <ul class="tool-card__tags" aria-label="Tool specifications">
+      
+        <li class="tool-card__tag">[WHATWG] URLSearchParams</li>
+      
+    </ul>
+    <a href="./tool-details.html" class="tool-card__action" aria-label="Open URL &amp; Query Param Parser">
+      <span data-i18n="tools.open_cta">Open Tool</span>
+      <span aria-hidden="true">&rarr;</span>
+    </a>
+  </footer>
+</article>
+
+
+        </div>
+      </section>
+
+      <footer class="catalog-pagination">
+        <span class="catalog-pagination__info" data-i18n="pagination.range">
+          Showing 1 - 9 of 24 utilities
+        </span>
+
+        <nav class="pagination" aria-label="Pagination Navigation">
+          <ul class="pagination__list">
+            <li class="pagination__item">
+              <a href="./tools.html?page=1" class="pagination__link pagination__link--disabled" aria-disabled="true" data-i18n="pagination.prev">
+                &larr; Previous
+              </a>
+            </li>
+            <li class="pagination__item">
+              <a href="./tools.html?page=1" class="pagination__link pagination__link--active" aria-current="page">1</a>
+            </li>
+            <li class="pagination__item">
+              <a href="./tools.html?page=2" class="pagination__link">2</a>
+            </li>
+            <li class="pagination__item">
+              <a href="./tools.html?page=3" class="pagination__link">3</a>
+            </li>
+            <li class="pagination__item pagination__item--ellipsis" aria-hidden="true">
+              <span>...</span>
+            </li>
+            <li class="pagination__item">
+              <a href="./tools.html?page=8" class="pagination__link">8</a>
+            </li>
+            <li class="pagination__item">
+              <a href="./tools.html?page=2" class="pagination__link" data-i18n="pagination.next">
+                Next &rarr;
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="density-selector">
+          <label for="density-select" class="density-selector__label" data-i18n="pagination.density">Density:</label>
+          <select id="density-select" name="density" class="density-selector__select">
+            <option value="9" selected>9 / page</option>
+            <option value="18">18 / page</option>
+            <option value="27">27 / page</option>
+          </select>
+        </div>
+      </footer>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+  <div class="footer__container">
+    <div class="footer__brand-block">
+      <a href="./index.html" class="footer__brand-logo" aria-label="DevForge Home">
+        <span aria-hidden="true">&lt;/&gt;</span> DevForge
+      </a>
+      <p class="footer__tagline" data-i18n="footer.tagline">
+        A utilitarian developer workspace crafted for deterministic component development, code analysis, and high-speed tooling.
+      </p>
+      <p class="footer__release-info">
+        Released under the <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer">MIT License</a> &bull; DevForge Engine v2.4.0
+      </p>
+    </div>
+
+    <nav class="footer__nav" aria-label="Footer navigation">
+      <div class="footer__nav-group">
+        <h4 class="footer__group-title" data-i18n="footer.workspace">Workspace</h4>
+        <ul class="footer__link-list">
+          <li><a href="./tools.html" class="footer__link">Architecture Visualizer</a></li>
+          <li><a href="./tools.html" class="footer__link">Token Inspector</a></li>
+          <li><a href="./tools.html" class="footer__link">API Schema Validator</a></li>
+          <li><a href="./tools.html" class="footer__link">Telemetry Stream</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__nav-group">
+        <h4 class="footer__group-title" data-i18n="footer.docs">Documentation</h4>
+        <ul class="footer__link-list">
+          <li><a href="./about.html" class="footer__link">CLI Guide &amp; Setup</a></li>
+          <li><a href="./about.html" class="footer__link">Tailwind Design System</a></li>
+          <li><a href="./about.html" class="footer__link">Keyboard Navigation</a></li>
+          <li><a href="./about.html" class="footer__link">Extension Architecture</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__nav-group">
+        <h4 class="footer__group-title" data-i18n="footer.ecosystem">Ecosystem</h4>
+        <ul class="footer__link-list">
+          <li><a href="https://github.com" class="footer__link" target="_blank" rel="noopener noreferrer">GitHub Repository</a></li>
+          <li><a href="./about.html" class="footer__link">Release Notes</a></li>
+          <li><a href="https://github.com" class="footer__link" target="_blank" rel="noopener noreferrer">Issue Tracker</a></li>
+          <li><a href="./about.html" class="footer__link">MIT License Agreement</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <div class="footer__bottom">
+    <p class="footer__copyright">
+      &copy; 2026 DevForge Project contributors. All rights reserved.
+    </p>
+  </div>
+</footer>
+
+
+</body>
+</html>
