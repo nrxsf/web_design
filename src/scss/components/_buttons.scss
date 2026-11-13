@@ -1,0 +1,79 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+@use '../abstracts/functions' as *;
+
+.btn {
+  @include flex(center, center, row, rem(8));
+  @include typography(14, 500);
+  padding: rem(10) rem(18);
+  border-radius: rem(8);
+  border: 1px solid transparent;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+
+  &:active {
+    transform: translateY(1px);
+  }
+
+  &--primary {
+    background-color: $color-primary;
+    color: #ffffff;
+
+    &:hover {
+      background-color: $color-primary-hover;
+    }
+  }
+
+  &--secondary {
+    background-color: $color-bg-elevated;
+    border-color: $color-border;
+    color: $color-text-main;
+
+    &:hover {
+      border-color: $color-border-hover;
+      background-color: tone($color-primary, $color-bg-elevated, 12%);
+    }
+  }
+
+  &--outline {
+    background-color: transparent;
+    border-color: $color-border-hover;
+    color: $color-text-main;
+
+    &:hover {
+      background-color: $color-bg-elevated;
+    }
+  }
+
+  &--ghost {
+    background-color: transparent;
+    color: $color-text-muted;
+    padding: rem(6) rem(10);
+    font-size: rem(13);
+
+    &:hover {
+      color: $color-text-main;
+      background-color: $color-bg-elevated;
+    }
+  }
+}
+
+.btn-icon {
+  @include flex(center, center);
+  width: rem(36);
+  height: rem(36);
+  border-radius: rem(8);
+  background-color: $color-bg-surface;
+  border: 1px solid $color-border;
+  color: $color-text-muted;
+  transition: border-color 0.2s ease, color 0.2s ease;
+
+  &:hover {
+    border-color: $color-border-hover;
+    color: $color-text-main;
+  }
+
+  &--profile {
+    background-color: tone($color-primary, $color-bg-surface, 25%);
+    color: $color-text-main;
+  }
+}

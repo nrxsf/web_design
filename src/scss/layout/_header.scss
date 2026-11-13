@@ -1,0 +1,133 @@
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+@use '../abstracts/functions' as *;
+@use '../abstracts/grid' as *;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: rgba($color-bg-base, 0.88);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid $color-border;
+
+  &__inner {
+    @include make-container();
+    @include flex(space-between, center, row, rem(16));
+    height: rem(64);
+  }
+
+  &__brand {
+    @include flex(flex-start, center, row, rem(10));
+    @include typography(18, 700);
+    color: $color-text-main;
+  }
+
+  &__logo-icon {
+    @include flex(center, center);
+    width: rem(32);
+    height: rem(32);
+    background-color: $color-primary;
+    border-radius: rem(8);
+    font-family: $font-mono;
+    font-size: rem(13);
+  }
+
+  &__nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background-color: $color-bg-surface;
+    border-top: 1px solid $color-border;
+    padding: rem(8) rem(16);
+
+    @include respond-to('tablet') {
+      position: static;
+      width: auto;
+      background: transparent;
+      border-top: none;
+      padding: 0;
+    }
+  }
+
+  &__actions {
+    @include flex(flex-end, center, row, rem(12));
+  }
+
+  &__search-form {
+    display: none;
+
+    @include respond-to('desktop') {
+      @include flex(space-between, center, row, rem(8));
+      background-color: $color-bg-surface;
+      border: 1px solid $color-border;
+      border-radius: rem(8);
+      padding: rem(6) rem(12);
+      width: rem(310);
+      flex-shrink: 0;
+      overflow: hidden;
+
+      input {
+        flex: 1 1 auto;
+        min-width: 0;
+        width: 100%;
+      }
+
+      kbd,
+      span:last-child {
+        flex-shrink: 0;
+        white-space: nowrap;
+      }
+    }
+}
+
+  &__controls {
+    @include flex(flex-end, center, row, rem(8));
+  }
+}
+
+.nav {
+  &__list {
+    @include flex(space-around, center, row, rem(8));
+
+    @include respond-to('tablet') {
+      justify-content: flex-start;
+      gap: rem(6);
+    }
+  }
+
+  &__link {
+    @include flex(center, center, column, rem(4));
+    @include typography(12, 500);
+    color: $color-text-muted;
+    padding: rem(6) rem(12);
+    border-radius: rem(8);
+    transition: color 0.2s ease, background-color 0.2s ease;
+
+    @include respond-to('tablet') {
+      flex-direction: row;
+      font-size: rem(14);
+      gap: rem(6);
+    }
+
+    &:hover {
+      color: $color-text-main;
+      background-color: $color-bg-elevated;
+    }
+
+    &--active {
+      color: $color-text-main;
+      background-color: tone($color-primary, $color-bg-surface, 22%);
+      border: 1px solid tone($color-primary, $color-border, 40%);
+    }
+  }
+
+  &__icon {
+    @include respond-to('tablet') {
+      display: none;    
+    }
+  }
+}

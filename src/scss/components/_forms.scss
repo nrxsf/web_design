@@ -1,0 +1,82 @@
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+@use '../abstracts/functions' as *;
+
+.search-box,
+.catalog-search {
+  @include flex(flex-start, center, row, rem(10));
+  background-color: $color-bg-surface;
+  border: 1px solid $color-border;
+  border-radius: rem(10);
+  padding: rem(10) rem(14);
+  width: 100%;
+  transition: border-color 0.2s ease;
+
+  &:focus-within {
+    border-color: $color-primary;
+  }
+
+  &__input {
+    width: 100%;
+    min-width: 0;
+    @include typography(14, 400);
+    color: $color-text-main;
+    outline: none;
+
+    &::placeholder {
+      color: $color-text-dim;
+    }
+  }
+}
+
+.search-bar__shortcut {
+  flex-shrink: 0;
+}
+
+.category-chips,
+.filter-tabs {
+  &__list {
+    @include flex(flex-start, center, row, rem(8));
+    flex-wrap: wrap;
+  }
+}
+
+.category-chip,
+.filter-chip {
+  @include flex(center, center, row, rem(6));
+  @include typography(13, 500);
+  padding: rem(6) rem(14);
+  border-radius: rem(8);
+  background-color: $color-bg-surface;
+  border: 1px solid $color-border;
+  color: $color-text-muted;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: $color-border-hover;
+    color: $color-text-main;
+  }
+
+  &--active {
+    background-color: $color-primary;
+    border-color: $color-primary;
+    color: #ffffff;
+  }
+}
+
+.toolbar-input,
+.catalog-sort__select,
+.density-selector__select {
+  background-color: $color-bg-base;
+  border: 1px solid $color-border;
+  border-radius: rem(6);
+  padding: rem(6) rem(10);
+  @include typography(13, 400, 1.4, $font-mono);
+  color: $color-text-main;
+
+  &:focus {
+    outline: none;
+    border-color: $color-primary;
+  }
+}

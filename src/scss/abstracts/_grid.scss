@@ -1,0 +1,54 @@
+
+@use 'sass:math';
+@use 'variables' as *;
+@use 'mixins' as *;
+
+@mixin make-container($max-width: $container-max-width, $gutter: $grid-gutter) {
+  width: 100%;
+  max-width: $max-width;
+  margin-inline: auto;
+  padding-inline: math.div($gutter, 2);
+}
+
+@mixin make-row($gutter: $grid-gutter) {
+  display: flex;
+  flex-wrap: wrap;
+  margin-inline: -(math.div($gutter, 2));
+  row-gap: $gutter;
+}
+
+@mixin make-col($size, $columns: $grid-columns, $gutter: $grid-gutter) {
+  flex: 0 0 auto;
+  width: math.percentage(math.div($size, $columns));
+  padding-inline: math.div($gutter, 2);
+}
+
+.container {
+  @include make-container();
+}
+
+.row {
+  @include make-row();
+}
+
+@for $i from 1 through $grid-columns {
+  .col-#{$i} {
+    @include make-col($i);
+  }
+}
+
+@include respond-to('tablet') {
+  @for $i from 1 through $grid-columns {
+    .col-md-#{$i} {
+      @include make-col($i);
+    }
+  }
+}
+
+@include respond-to('desktop') {
+  @for $i from 1 through $grid-columns {
+    .col-lg-#{$i} {
+      @include make-col($i);
+    }
+  }
+}

@@ -1,0 +1,43 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+@use '../abstracts/functions' as *;
+
+.section-tag {
+  display: inline-block;
+  @include typography(11, 600, 1.2, $font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: $color-primary-hover;
+  margin-bottom: rem(8);
+}
+
+.version-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: rem(2) rem(8);
+  border-radius: rem(999);
+  @include typography(11, 600, 1.4, $font-mono);
+  background-color: tone($color-primary, $color-bg-elevated, 20%);
+  color: $color-primary-hover;
+  border: 1px solid tone($color-primary, $color-border, 35%);
+}
+
+.status-dot,
+.status-indicator__dot {
+  display: inline-block;
+  width: rem(8);
+  height: rem(8);
+  border-radius: 50%;
+  background-color: $color-accent-green;
+  box-shadow: 0 0 rem(8) rgba($color-accent-green, 0.6);
+}
+
+kbd {
+  display: inline-block;
+  padding: rem(2) rem(6);
+  @include typography(11, 500, 1.2, $font-mono);
+  background-color: $color-bg-elevated;
+  border: 1px solid $color-border-hover;
+  border-radius: rem(4);
+  color: $color-text-muted;
+}

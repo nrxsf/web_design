@@ -1,0 +1,93 @@
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+@use '../abstracts/functions' as *;
+
+.tool-card {
+  @include surface-card(rem(20), rem(12));
+  @include flex(space-between, stretch, column, rem(14));
+
+  &:hover {
+    border-color: $color-primary;
+    transform: translateY(-2px);
+    box-shadow: 0 rem(10) rem(24) rgba(0, 0, 0, 0.35);
+  }
+
+  &__header {
+    @include flex(space-between, center, row, rem(8));
+  }
+
+  &__meta {
+    @include flex(flex-start, center, row, rem(6));
+    @include typography(12, 500, 1.2, $font-mono);
+    color: $color-text-muted;
+  }
+
+  &__badge {
+    padding: rem(2) rem(8);
+    border-radius: rem(999);
+    @include typography(11, 600, 1.3, $font-mono);
+
+    &--success {
+      background-color: tone($color-accent-green, $color-bg-surface, 15%);
+      color: $color-accent-green;
+    }
+
+    &--indigo {
+      background-color: tone($color-primary, $color-bg-surface, 20%);
+      color: $color-primary-hover;
+    }
+  }
+
+  &__title {
+    @include typography(17, 600, 1.3);
+    color: $color-text-main;
+  }
+
+  &__link:hover {
+    color: $color-primary-hover;
+  }
+
+  &__description {
+    @include typography(14, 400, 1.55);
+    color: $color-text-muted;
+    flex-grow: 1;
+  }
+
+  &__code-preview {
+    background-color: $color-bg-base;
+    border: 1px solid $color-border;
+    border-radius: rem(6);
+    padding: rem(8) rem(12);
+    @include typography(12, 400, 1.4, $font-mono);
+    color: $color-accent-green;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  &__footer {
+    @include flex(space-between, center, row, rem(8));
+    padding-top: rem(12);
+    border-top: 1px solid $color-border;
+  }
+
+  &__tags {
+    @include flex(flex-start, center, row, rem(6));
+    flex-wrap: wrap;
+  }
+
+  &__tag {
+    @include typography(11, 400, 1.2, $font-mono);
+    color: $color-text-dim;
+  }
+
+  &__action {
+    @include flex(flex-end, center, row, rem(4));
+    @include typography(13, 500);
+    color: $color-primary-hover;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

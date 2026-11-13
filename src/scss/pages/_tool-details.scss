@@ -1,0 +1,175 @@
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+@use '../abstracts/functions' as *;
+@use '../abstracts/grid' as *;
+
+.tool-details-container {
+  @include make-container();
+}
+
+.tool-header {
+  @include flex(space-between, flex-start, row, rem(20));
+  flex-wrap: wrap;
+  margin-bottom: rem(28);
+
+  &__title-row {
+    @include flex(flex-start, center, row, rem(12));
+    margin-bottom: rem(8);
+  }
+
+  &__icon {
+    @include flex(center, center);
+    width: rem(40);
+    height: rem(40);
+    background-color: $color-bg-elevated;
+    border: 1px solid $color-border;
+    border-radius: rem(8);
+    font-family: $font-mono;
+    color: $color-primary-hover;
+  }
+
+  &__title {
+    @include typography(28, 700, 1.2);
+  }
+
+  &__description {
+    @include typography(15, 400, 1.5);
+    color: $color-text-muted;
+    margin-bottom: rem(14);
+  }
+
+  &__metadata {
+    @include flex(flex-start, center, row, rem(16));
+    flex-wrap: wrap;
+    @include typography(12, 400, 1.2, $font-mono);
+    color: $color-text-dim;
+  }
+}
+
+.workspace-toolbar {
+  @include surface-card(rem(14) rem(18), rem(10));
+  @include flex(space-between, center, row, rem(16));
+  flex-wrap: wrap;
+  margin-bottom: rem(16);
+
+  &__group,
+  &__actions {
+    @include flex(flex-start, center, row, rem(12));
+    flex-wrap: wrap;
+  }
+
+  .toolbar-label {
+    @include typography(12, 600, 1.2, $font-mono);
+    color: $color-text-muted;
+  }
+
+  .radio-label,
+  .checkbox-label {
+    @include flex(flex-start, center, row, rem(6));
+    @include typography(13, 400, 1.2, $font-mono);
+    color: $color-text-main;
+    cursor: pointer;
+  }
+}
+
+.workspace-panes {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: rem(16);
+  margin-bottom: rem(48);
+
+  @include respond-to('desktop') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.editor-pane {
+  @include surface-card(0, rem(10));
+  overflow: hidden;
+  @include flex(space-between, stretch, column);
+
+  &__header,
+  &__statusbar {
+    @include flex(space-between, center, row, rem(8));
+    padding: rem(10) rem(14);
+    background-color: $color-bg-elevated;
+    @include typography(12, 400, 1.2, $font-mono);
+  }
+
+  &__header { border-bottom: 1px solid $color-border; }
+  &__statusbar { border-top: 1px solid $color-border; color: $color-text-dim; }
+
+  &__textarea {
+    width: 100%;
+    padding: rem(14);
+    background-color: $color-bg-base;
+    @include typography(13, 400, 1.55, $font-mono);
+    color: $color-text-main;
+    resize: vertical;
+    outline: none;
+
+    &--readonly {
+      color: #a5b4fc;
+    }
+  }
+}
+
+.engine-steps {
+  margin-bottom: rem(56);
+
+  &__header { margin-bottom: rem(24); }
+  &__title { @include typography(24, 700); margin-bottom: rem(6); }
+  &__subtitle { @include typography(14, 400); color: $color-text-muted; }
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: rem(16);
+    margin-bottom: rem(24);
+
+    @include respond-to('tablet') {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+.step-card {
+  @include surface-card(rem(20), rem(10));
+
+  &__header {
+    @include flex(space-between, center);
+    margin-bottom: rem(12);
+  }
+
+  &__number {
+    @include flex(center, center);
+    width: rem(26);
+    height: rem(26);
+    border-radius: rem(6);
+    background-color: $color-bg-elevated;
+    @include typography(12, 700, 1, $font-mono);
+  }
+
+  &__title { @include typography(16, 600); margin-bottom: rem(8); }
+  &__description { @include typography(13, 400, 1.55); color: $color-text-muted; }
+}
+
+.recommended-tools {
+  &__header {
+    @include flex(space-between, center);
+    margin-bottom: rem(24);
+  }
+
+  &__title { @include typography(22, 700); }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: rem(20);
+
+    @include respond-to('tablet') {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}

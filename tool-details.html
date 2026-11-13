@@ -9,7 +9,7 @@
 </head>
 <body>
 
-  <%- include('./src/partials/header.ejs') %>
+<%- include('./src/partials/header.ejs', { activePage: 'tools' }) %>
 
   <main class="main-content" itemscope itemtype="https://schema.org/SoftwareApplication">
     <div class="tool-details-container">
@@ -370,5 +370,6 @@ console.log(dtsOutput);
 
   <%- include('./src/partials/footer.ejs') %>
 
+<script type="module" src="./src/js/main.js"></script>
 </body>
 </html>

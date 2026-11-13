@@ -8,7 +8,7 @@
 </head>
 <body>
 
-  <%- include('./src/partials/header.ejs') %>
+    <%- include('./src/partials/header.ejs', { activePage: 'about' }) %>
 
   <main class="main-content">
     <div class="about-container">
@@ -266,6 +266,6 @@
   </main>
 
   <%- include('./src/partials/footer.ejs') %>
-
+<script type="module" src="./src/js/main.js"></script>
 </body>
 </html>

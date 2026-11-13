@@ -1,0 +1,31 @@
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: #ffffff !important;
+    color: #000000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  .header__nav,
+  .header__actions,
+  .footer,
+  .hotkeys-bar,
+  .workspace-toolbar__actions,
+  .btn {
+    display: none !important;
+  }
+
+  body {
+    padding: 0;
+    font-size: 12pt;
+  }
+
+  pre,
+  code,
+  textarea {
+    border: 1px solid #cccccc !important;
+    page-break-inside: avoid;
+  }
+}

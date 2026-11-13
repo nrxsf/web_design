@@ -1,0 +1,28 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+@use '../abstracts/functions' as *;
+
+.breadcrumbs {
+  padding-block: rem(20);
+
+  &__list {
+    @include flex(flex-start, center, row, rem(8));
+    flex-wrap: wrap;
+    @include typography(13, 400, 1.4, $font-mono);
+    color: $color-text-dim;
+  }
+
+  &__item:not(:last-child)::after {
+    content: '/';
+    margin-left: rem(8);
+    color: $color-text-dim;
+  }
+
+  &__link:hover {
+    color: $color-text-main;
+  }
+
+  &__current {
+    color: $color-text-muted;
+  }
+}

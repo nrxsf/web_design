@@ -1,0 +1,126 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+@use '../abstracts/functions' as *;
+@use '../abstracts/grid' as *;
+
+.about-container {
+  @include make-container();
+}
+
+.about-hero {
+  padding-block: rem(32) rem(48);
+
+  &__badge {
+    @include flex(flex-start, center, row, rem(8));
+    @include typography(12, 500, 1.2, $font-mono);
+    color: $color-accent-green;
+    margin-bottom: rem(16);
+  }
+
+  &__title {
+    @include typography(36, 700, 1.15);
+    margin-bottom: rem(16);
+
+    @include respond-to('desktop') {
+      font-size: rem(48);
+    }
+  }
+
+  &__description {
+    @include typography(16, 400, 1.6);
+    color: $color-text-muted;
+    max-width: rem(640);
+    margin-bottom: rem(24);
+  }
+
+  &__actions {
+    @include flex(flex-start, center, row, rem(20));
+    flex-wrap: wrap;
+  }
+
+  &__status {
+    @include typography(13, 400, 1.2, $font-mono);
+    color: $color-text-dim;
+  }
+}
+
+.pillars,
+.contribute-workflow,
+.tech-stack {
+  padding-block: rem(40);
+  border-top: 1px solid $color-border;
+
+  &__header {
+    @include flex(space-between, flex-end, row, rem(16));
+    flex-wrap: wrap;
+    margin-bottom: rem(28);
+  }
+
+  &__title {
+    @include typography(24, 700);
+  }
+}
+
+.pillars__grid,
+.contribute-workflow__steps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: rem(20);
+
+  @include respond-to('desktop') {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.pillar-card,
+.workflow-step {
+  @include surface-card(rem(22), rem(12));
+  @include flex(space-between, stretch, column, rem(14));
+
+  &__header {
+    @include flex(space-between, center);
+  }
+
+  &__title { @include typography(18, 600); }
+  &__description, &__desc {
+    @include typography(14, 400, 1.6);
+    color: $color-text-muted;
+  }
+}
+
+.telemetry-box,
+.workflow-step__terminal {
+  background-color: $color-bg-base;
+  border: 1px solid $color-border;
+  border-radius: rem(8);
+  padding: rem(12);
+  @include typography(12, 400, 1.4, $font-mono);
+  color: $color-text-muted;
+}
+
+.tech-stack__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: rem(16);
+
+  @include respond-to('tablet') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to('desktop') {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.stack-card {
+  @include surface-card(rem(18), rem(10));
+  @include flex(flex-start, center, row, rem(14));
+
+  &__title-row {
+    @include flex(flex-start, center, row, rem(8));
+    margin-bottom: rem(4);
+  }
+
+  &__title { @include typography(16, 600); }
+  &__desc { @include typography(13, 400); color: $color-text-muted; }
+}

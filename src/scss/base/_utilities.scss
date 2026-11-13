@@ -1,0 +1,35 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/functions' as *;
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.u-hidden-mobile {
+  display: none !important;
+  @include respond-to('tablet') {
+    display: initial !important;
+  }
+}
+
+.u-hidden-desktop {
+  @include respond-to('desktop') {
+    display: none !important;
+  }
+}
+
+$spacers: (0: 0, 1: 4, 2: 8, 3: 16, 4: 24, 5: 32, 6: 48);
+
+@each $key, $px in $spacers {
+  .u-mt-#{$key} { margin-top: rem($px) !important; }
+  .u-mb-#{$key} { margin-bottom: rem($px) !important; }
+  .u-p-#{$key}  { padding: rem($px) !important; }
+}

@@ -1,0 +1,88 @@
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+@use '../abstracts/functions' as *;
+@use '../abstracts/grid' as *;
+
+.footer {
+  background-color: $color-bg-surface;
+  border-top: 1px solid $color-border;
+  padding-top: rem(48);
+  margin-top: rem(64);
+
+  &__container {
+    @include make-container();
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: rem(32);
+    padding-bottom: rem(40);
+
+    @include respond-to('tablet') {
+      grid-template-columns: 1.5fr 2fr;
+    }
+  }
+
+  &__brand-logo {
+    @include flex(flex-start, center, row, rem(8));
+    @include typography(18, 700);
+    color: $color-text-main;
+    margin-bottom: rem(12);
+  }
+
+  &__tagline {
+    @include typography(14, 400, 1.6);
+    color: $color-text-muted;
+    max-width: rem(320);
+    margin-bottom: rem(16);
+  }
+
+  &__release-info {
+    @include typography(12, 400, 1.4, $font-mono);
+    color: $color-text-dim;
+
+    a {
+      color: $color-text-muted;
+      text-decoration: underline;
+    }
+  }
+
+  &__nav {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: rem(24);
+
+    @include respond-to('desktop') {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__group-title {
+    @include typography(12, 600, 1.4, $font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: $color-text-main;
+    margin-bottom: rem(12);
+  }
+
+  &__link-list {
+    @include flex(flex-start, flex-start, column, rem(8));
+  }
+
+  &__link {
+    @include typography(14, 400);
+    color: $color-text-muted;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $color-primary-hover;
+    }
+  }
+
+  &__bottom {
+    @include make-container();
+    border-top: 1px solid $color-border;
+    padding-block: rem(20);
+    @include typography(12, 400);
+    color: $color-text-dim;
+  }
+}

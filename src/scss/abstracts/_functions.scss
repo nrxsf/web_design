@@ -1,0 +1,13 @@
+@use 'sass:math';
+@use 'sass:color';
+
+@function rem($px, $base: 16) {
+  @if math.is-unitless($px) {
+    @return math.div($px, $base) * 1rem;
+  }
+  @return math.div($px, $base * 1px) * 1rem;
+}
+
+@function tone($color, $mix-color: #000000, $weight: 85%) {
+  @return color.mix($color, $mix-color, $weight);
+}

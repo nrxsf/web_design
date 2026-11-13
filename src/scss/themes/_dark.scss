@@ -1,0 +1,8 @@
+@use '../abstracts/variables' as *;
+
+:root {
+  color-scheme: dark;
+  --bg-base: #{$color-bg-base};
+  --bg-surface: #{$color-bg-surface};
+  --color-primary: #{$color-primary};
+}

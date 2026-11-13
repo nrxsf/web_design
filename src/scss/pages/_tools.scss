@@ -1,0 +1,108 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+@use '../abstracts/functions' as *;
+@use '../abstracts/grid' as *;
+
+.catalog-container {
+  @include make-container();
+}
+
+.page-header {
+  margin-bottom: rem(32);
+
+  &__title-row {
+    @include flex(space-between, flex-start, row, rem(20));
+    flex-wrap: wrap;
+  }
+
+  &__badge-wrap {
+    @include flex(flex-start, center, row, rem(12));
+    margin-bottom: rem(8);
+  }
+
+  &__title {
+    @include typography(32, 700, 1.2);
+  }
+
+  &__description {
+    @include typography(15, 400, 1.6);
+    color: $color-text-muted;
+    max-width: rem(640);
+  }
+
+  &__status-panel {
+    @include surface-card(rem(10) rem(16), rem(8));
+    @include flex(flex-start, center, row, rem(14));
+    @include typography(12, 500, 1.2, $font-mono);
+  }
+}
+
+.catalog-controls {
+  margin-bottom: rem(32);
+
+  &__form {
+    @include flex(flex-start, stretch, column, rem(16));
+  }
+
+  &__top-row {
+    @include flex(space-between, center, row, rem(12));
+    flex-wrap: wrap;
+  }
+
+  .catalog-search {
+    flex: 1 1 rem(280);
+  }
+}
+
+.filter-tabs {
+  @include flex(flex-start, center, row, rem(8));
+  flex-wrap: wrap;
+}
+
+.catalog-grid__items {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: rem(20);
+
+  @include respond-to('tablet') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to('desktop') {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.catalog-pagination {
+  @include flex(space-between, center, row, rem(16));
+  flex-wrap: wrap;
+  margin-top: rem(40);
+  padding-top: rem(24);
+  border-top: 1px solid $color-border;
+  @include typography(13, 400);
+  color: $color-text-muted;
+}
+
+.pagination {
+  &__list {
+    @include flex(center, center, row, rem(6));
+  }
+
+  &__link {
+    padding: rem(6) rem(12);
+    border-radius: rem(6);
+    background-color: $color-bg-surface;
+    border: 1px solid $color-border;
+
+    &--active {
+      background-color: $color-primary;
+      border-color: $color-primary;
+      color: #ffffff;
+    }
+
+    &--disabled {
+      opacity: 0.4;
+      pointer-events: none;
+    }
+  }
+}

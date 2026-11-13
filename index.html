@@ -8,7 +8,7 @@
 </head>
 <body>
 
-  <%- include('./src/partials/header.ejs') %>
+<%- include('./src/partials/header.ejs', { activePage: 'home' }) %>
 
   <main class="main-content">
 
@@ -188,7 +188,7 @@
           class="tech-highlight__img" 
           src="./src/assets/img/architecture-diagram-desktop.png" 
           alt="DevForge WebAssembly isolated execution pipeline architecture schema" 
-          width="640" 
+          width="1248" 
           height="360" 
           loading="lazy"
         >
@@ -293,5 +293,6 @@
 
   <%- include('./src/partials/footer.ejs') %>
 
+<script type="module" src="./src/js/main.js"></script>
 </body>
 </html>

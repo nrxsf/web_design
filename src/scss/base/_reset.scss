@@ -1,0 +1,66 @@
+@use '../abstracts/variables' as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  background-color: $color-bg-base;
+  color: $color-text-main;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: $font-sans;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: 4.5rem; 
+
+  @media (min-width: 768px) {
+    padding-bottom: 0;
+  }
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+img,
+picture,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
