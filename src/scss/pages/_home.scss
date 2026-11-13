@@ -61,30 +61,21 @@
   }
 
   &__list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: rem(20);
+    @include make-row();
     text-align: center;
-
-    @include respond-to('tablet') {
-      grid-template-columns: repeat(4, 1fr);
-    }
   }
 }
 
 .metric-item {
+  @include make-col(6);                     
   @include flex(center, center, column, rem(4));
 
-  &__value {
-    @include typography(24, 700, 1.2, $font-mono);
-    color: $color-text-main;
+  @include respond-to('tablet') {
+    @include make-col(3);                     
   }
 
-  &__label {
-    @include typography(11, 500, 1.2, $font-mono);
-    color: $color-text-dim;
-    letter-spacing: 0.05em;
-  }
+  &__value { }
+  &__label { }
 }
 
 .featured-tools,
@@ -119,7 +110,16 @@
     }
   }
 }
+.features__header {
+  @include flex(center, center, column, rem(8));
+  text-align: center;
+}
 
+.features__subtitle {
+  @include typography(15, 400, 1.6);
+  color: $color-text-muted;
+  max-width: rem(640);
+}
 .feature-card {
   @include surface-card(rem(24), rem(12));
   @include flex(flex-start, flex-start, column, rem(12));

@@ -14,9 +14,8 @@
 }
 
 .u-hidden-mobile {
-  display: none !important;
-  @include respond-to('tablet') {
-    display: initial !important;
+  @include respond-below('tablet') {
+    display: none !important;
   }
 }
 

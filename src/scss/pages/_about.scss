@@ -75,7 +75,7 @@
 .pillar-card,
 .workflow-step {
   @include surface-card(rem(22), rem(12));
-  @include flex(space-between, stretch, column, rem(14));
+  @include flex(flex-start, stretch, column, rem(14));
 
   &__header {
     @include flex(space-between, center);
@@ -85,6 +85,11 @@
   &__description, &__desc {
     @include typography(14, 400, 1.6);
     color: $color-text-muted;
+  }
+
+  &__telemetry,
+  &__terminal {
+    margin-top: auto;
   }
 }
 
@@ -98,6 +103,55 @@
   color: $color-text-muted;
 }
 
+
+.workflow-step__terminal {
+  @include flex(space-between, center, row, rem(8));
+}
+
+.btn-copy-code {
+  flex-shrink: 0;
+  color: $color-text-muted;
+
+  &:hover { color: $color-text-main; }
+}
+
+.telemetry-box {
+  @include flex(flex-start, stretch, column, rem(8));
+
+  &__row {
+    @include flex(space-between, center, row, rem(8));
+  }
+
+  &__label {
+    letter-spacing: 0.05em;
+    color: $color-text-dim;
+  }
+
+  &__badge {
+    padding: rem(2) rem(8);
+    border-radius: rem(999);
+    border: 1px solid $color-border-hover;
+    color: $color-primary-hover;
+  }
+
+  &__badge--pass {
+    color: $color-accent-green;
+    border-color: $color-accent-green;
+  }
+
+  &__metrics {
+    @include flex(flex-start, flex-start, column, rem(4));
+  }
+
+  &__tags {
+    @include flex(flex-start, center, row, rem(6));
+    flex-wrap: wrap;
+  }
+
+  &__status {
+    color: $color-accent-green;
+  }
+}
 .tech-stack__grid {
   display: grid;
   grid-template-columns: 1fr;

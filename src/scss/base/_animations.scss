@@ -40,3 +40,18 @@
 .anim-slide {
   animation: slide 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+
+@for $i from 1 through 3 {
+  .anim-delay-#{$i} {
+    animation-delay: #{$i * 0.1}s;
+    animation-fill-mode: both;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-appear,
+  .anim-fade,
+  .anim-slide {
+    animation: none;
+  }
+}

@@ -4,13 +4,21 @@
 @use '../abstracts/functions' as *;
 @use '../abstracts/grid' as *;
 
+
 .header {
   position: sticky;
   top: 0;
   z-index: 50;
-  background-color: rgba($color-bg-base, 0.88);
-  backdrop-filter: blur(12px);
   border-bottom: 1px solid $color-border;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-color: rgba($color-bg-base, 0.88);
+    backdrop-filter: blur(12px);
+  }
 
   &__inner {
     @include make-container();

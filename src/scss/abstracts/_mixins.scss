@@ -37,3 +37,14 @@
   padding: $padding;
   transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
+
+@mixin respond-below($bp) {
+  $val: map.get($breakpoints, $bp);
+  @if $val {
+    @media (max-width: $val - 0.02px) {
+      @content;
+    }
+  } @else {
+    @warn "Unknown breakpoint `#{$bp}`.";
+  }
+}
