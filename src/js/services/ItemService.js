@@ -1,9 +1,9 @@
-
 import http from '../api/http.js';
 
 const CACHE_TTL_MS = 60 * 1000;
 const STORAGE_CACHE_PREFIX = 'devforge_api_cache_';
 const LOCAL_TOOLS_KEY = 'devforge_local_tools';
+const LIKES_OVERRIDES_KEY = 'devforge_likes_overrides';
 
 export class ItemService {
   constructor() {
@@ -80,14 +80,23 @@ export class ItemService {
     }
   }
 
-  async _fetchFallbackTools({ category, q, sort, page, limit }) {
+  async _loadStaticMergedTools() {
     const res = await fetch('./api/db.json');
     if (!res.ok) {
       throw new Error('Failed to load fallback dataset');
     }
     const db = await res.json();
     const localAdded = JSON.parse(localStorage.getItem(LOCAL_TOOLS_KEY) || '[]');
-    let items = [...db.tools, ...localAdded];
+    const likesOverrides = JSON.parse(localStorage.getItem(LIKES_OVERRIDES_KEY) || '{}');
+
+    return [...db.tools, ...localAdded].map((tool) => ({
+      ...tool,
+      likes: likesOverrides[String(tool.id)] ?? tool.likes,
+    }));
+  }
+
+  async _fetchFallbackTools({ category, q, sort, page, limit }) {
+    let items = await this._loadStaticMergedTools();
 
     if (category && category !== 'all') {
       items = items.filter((t) => t.category === category);
@@ -180,10 +189,8 @@ export class ItemService {
       this._saveToCache(cacheKey, response.data);
       return response.data;
     } catch {
-      const res = await fetch('./api/db.json');
-      const db = await res.json();
-      const localAdded = JSON.parse(localStorage.getItem(LOCAL_TOOLS_KEY) || '[]');
-      const found = [...db.tools, ...localAdded].find((item) => String(item.id) === String(id));
+      const items = await this._loadStaticMergedTools();
+      const found = items.find((item) => String(item.id) === String(id));
       if (!found) {
         throw new Error(`Tool #${id} not found`);
       }
@@ -197,9 +204,22 @@ export class ItemService {
       throw new Error('Simulated 503 Service Unavailable during optimistic like sync');
     }
 
-    const response = await http.patch(`/tools/${id}`, { likes });
-    this.invalidateCache();
-    return response.data;
+    try {
+      const response = await http.patch(`/tools/${id}`, { likes });
+      this.invalidateCache();
+      return response.data;
+    } catch (err) {
+      const isStaticHost =
+        window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1';
+      if (isStaticHost) {
+        const overrides = JSON.parse(localStorage.getItem(LIKES_OVERRIDES_KEY) || '{}');
+        overrides[String(id)] = likes;
+        localStorage.setItem(LIKES_OVERRIDES_KEY, JSON.stringify(overrides));
+        this.invalidateCache();
+        return { id, likes };
+      }
+      throw err;
+    }
   }
 
   async createTool(payload) {
