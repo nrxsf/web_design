@@ -287,7 +287,55 @@
           </select>
         </div>
       </footer>
+      <section class="tool-submission" aria-labelledby="submit-tool-heading" style="margin-top: 3rem; padding: 1.5rem; border: 1px solid rgba(148, 163, 184, 0.2); border-radius: 12px;">
+        <h2 id="submit-tool-heading" style="margin-bottom: 0.5rem;">Submit a New Micro-Utility</h2>
+        <p style="margin-bottom: 1.25rem; opacity: 0.8;">Add a client-side tool to the DevForge catalog (validated &amp; persisted via json-server + localStorage draft).</p>
 
+        <form id="new-tool-form" novalidate style="display: grid; gap: 1rem;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
+            <div>
+              <label for="tool-title">Tool Title *</label>
+              <input id="tool-title" name="title" type="text" required minlength="3" maxlength="60" placeholder="e.g. YAML Linter" class="catalog-search__input" style="width: 100%; margin-top: 0.25rem;">
+              <small data-error-for="title" style="color: #ef4444; display: block; min-height: 1.2em;"></small>
+            </div>
+
+            <div>
+              <label for="tool-slug">Command Slug *</label>
+              <input id="tool-slug" name="slug" type="text" required pattern="^[a-z0-9-]+$" data-pattern-hint="Use lowercase letters, numbers, and hyphens only (e.g. yaml-linter)." placeholder="e.g. yaml-linter" class="catalog-search__input" style="width: 100%; margin-top: 0.25rem;">
+              <small data-error-for="slug" style="color: #ef4444; display: block; min-height: 1.2em;"></small>
+            </div>
+
+            <div>
+              <label for="tool-category">Category *</label>
+              <select id="tool-category" name="category" required class="catalog-sort__select" style="width: 100%; margin-top: 0.25rem;">
+                <option value="formatters">Formatters</option>
+                <option value="converters">Converters</option>
+                <option value="security">Security</option>
+                <option value="encoders">Encoders</option>
+                <option value="web">Web</option>
+              </select>
+              <small data-error-for="category" style="color: #ef4444; display: block; min-height: 1.2em;"></small>
+            </div>
+
+            <div>
+              <label for="tool-latency">Execution Latency (ms) *</label>
+              <input id="tool-latency" name="latencyMs" type="number" required min="1" max="500" value="2" class="catalog-search__input" style="width: 100%; margin-top: 0.25rem;">
+              <small data-error-for="latencyMs" style="color: #ef4444; display: block; min-height: 1.2em;"></small>
+            </div>
+          </div>
+
+          <div>
+            <label for="tool-description">Description *</label>
+            <textarea id="tool-description" name="description" rows="3" required minlength="15" maxlength="240" placeholder="Describe what this client-side utility does..." class="catalog-search__input" style="width: 100%; margin-top: 0.25rem;"></textarea>
+            <small data-error-for="description" style="color: #ef4444; display: block; min-height: 1.2em;"></small>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+            <button type="submit" class="btn btn--primary">Publish Utility</button>
+            <span data-form-status role="status" aria-live="polite"></span>
+          </div>
+        </form>
+      </section>
     </div>
   </main>
 

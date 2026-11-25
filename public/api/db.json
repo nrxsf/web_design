@@ -1,0 +1,292 @@
+{
+  "tools": [
+    {
+      "id": 1,
+      "slug": "json-formatter",
+      "title": "JSON Formatter & Validator",
+      "category": "formatters",
+      "categoryLabel": "Formatters",
+      "icon": "{ }",
+      "badge": "0ms Client",
+      "badgeType": "success",
+      "latencyMs": 1,
+      "likes": 249,
+      "description": "Minify, prettify, inspect schema, and repair broken JSON trees with zero telemetry and instant syntax checks.",
+      "previewCode": "dev.tool.json-formatter",
+      "tags": [
+        "[Local] v1.8"
+      ],
+      "snippet": "const parsed = JSON.parse(rawJson);\nconsole.log(JSON.stringify(parsed, null, 2));"
+    },
+    {
+      "id": 2,
+      "slug": "regex-visualizer",
+      "title": "RegEx Visualizer & Tester",
+      "category": "web",
+      "categoryLabel": "Web",
+      "icon": "(.*)",
+      "badge": "WASM Fast",
+      "badgeType": "indigo",
+      "latencyMs": 2,
+      "likes": 195,
+      "description": "Interactive regular expression tester with colorized syntax trees, group capture breakdown, and AST visualization.",
+      "previewCode": "dev.tool.regex-engine",
+      "tags": [
+        "[Rust/WASM] PCRE2"
+      ],
+      "snippet": "const regex = new RegExp('(?:[a-z0-9_]+)', 'g');\nconst matches = [...sample.matchAll(regex)];"
+    },
+    {
+      "id": 3,
+      "slug": "base64-codec",
+      "title": "Base64 Encoder / Decoder",
+      "category": "encoders",
+      "categoryLabel": "Encoders",
+      "icon": "⇅",
+      "badge": "0ms Client",
+      "badgeType": "success",
+      "latencyMs": 1,
+      "likes": 184,
+      "description": "Bi-directional UTF-8 and URL-safe Base64 conversion with multi-file drag & drop and interactive payload inspect.",
+      "previewCode": "dev.tool.base64-codec",
+      "tags": [
+        "[Stream] RFC 4648"
+      ],
+      "snippet": "const encoded = btoa(unescape(encodeURIComponent('DevForge')));\nconst decoded = decodeURIComponent(escape(atob(encoded)));"
+    },
+    {
+      "id": 4,
+      "slug": "jwt-debugger",
+      "title": "JWT Debugger & Inspector",
+      "category": "security",
+      "categoryLabel": "Security",
+      "icon": "🔑",
+      "badge": "100% Client",
+      "badgeType": "success",
+      "latencyMs": 2,
+      "likes": 313,
+      "description": "Decode JWT headers and claims, inspect signatures with RS256/HS256 validation directly in browser memory.",
+      "previewCode": "dev.tool.jwt-claims",
+      "tags": [
+        "[Crypto] JWK / PEM"
+      ],
+      "snippet": "const [header, payload] = token.split('.');\nconsole.log(JSON.parse(atob(payload)));"
+    },
+    {
+      "id": 5,
+      "slug": "uuid-ulid-generator",
+      "title": "UUID & ULID Generator",
+      "category": "converters",
+      "categoryLabel": "Converters",
+      "icon": "⚙",
+      "badge": "Instant",
+      "badgeType": "indigo",
+      "latencyMs": 1,
+      "likes": 167,
+      "description": "Cryptographically secure v4/v7 UUID and timestamp-sortable ULID batch generation with format presets.",
+      "previewCode": "dev.tool.id-forge",
+      "tags": [
+        "[CSPRNG] Up to 10k/sec"
+      ],
+      "snippet": "const batch = Array.from({ length: 5 }, () => crypto.randomUUID());"
+    },
+    {
+      "id": 6,
+      "slug": "markdown-previewer",
+      "title": "Markdown Live Previewer",
+      "category": "formatters",
+      "categoryLabel": "Formatters",
+      "icon": "📝",
+      "badge": "Realtime",
+      "badgeType": "indigo",
+      "latencyMs": 4,
+      "likes": 143,
+      "description": "GFM compliant split-pane editor with KaTeX math rendering, mermaid diagram support, table generator, and export.",
+      "previewCode": "dev.tool.md-compiler",
+      "tags": [
+        "[Renderer] CommonMark"
+      ],
+      "snippet": "const renderedHtml = gfmCompiler.parse('# Architecture Notes');"
+    },
+    {
+      "id": 7,
+      "slug": "css-grid-generator",
+      "title": "CSS Flexbox & Grid Generator",
+      "category": "web",
+      "categoryLabel": "Web",
+      "icon": "┼",
+      "badge": "Instant",
+      "badgeType": "indigo",
+      "latencyMs": 2,
+      "likes": 176,
+      "description": "Interactive visual builder for CSS flex layouts and subgrids with copy-ready BEM and utility classes.",
+      "previewCode": "dev.tool.layout-matrix",
+      "tags": [
+        "[Interactive] Grid v2"
+      ],
+      "snippet": ".grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.5rem; }"
+    },
+    {
+      "id": 8,
+      "slug": "hash-hmac-calculator",
+      "title": "Hash & HMAC Calculator",
+      "category": "security",
+      "categoryLabel": "Security",
+      "icon": "#",
+      "badge": "WebCrypto",
+      "badgeType": "indigo",
+      "latencyMs": 3,
+      "likes": 230,
+      "description": "Compute SHA-256, SHA-512, MD5, and secret-keyed HMAC digests using hardware-accelerated WebCrypto.",
+      "previewCode": "dev.tool.hash-suite",
+      "tags": [
+        "[Hardware] SubtleCrypto"
+      ],
+      "snippet": "const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(input));"
+    },
+    {
+      "id": 9,
+      "slug": "url-query-parser",
+      "title": "URL & Query Param Parser",
+      "category": "encoders",
+      "categoryLabel": "Encoders",
+      "icon": "%20",
+      "badge": "0ms Client",
+      "badgeType": "success",
+      "latencyMs": 1,
+      "likes": 119,
+      "description": "Dissect complex URLs, edit search parameters in table format, and generate safe-encoded deep links with ease.",
+      "previewCode": "dev.tool.uri-breakdown",
+      "tags": [
+        "[WHATWG] URLSearchParams"
+      ],
+      "snippet": "const url = new URL(rawHref);\nconsole.log([...url.searchParams.entries()]);"
+    },
+    {
+      "id": 10,
+      "slug": "yaml-json-converter",
+      "title": "YAML ⇄ JSON / TOML Converter",
+      "category": "converters",
+      "categoryLabel": "Converters",
+      "icon": "⇄",
+      "badge": "0ms Client",
+      "badgeType": "success",
+      "latencyMs": 2,
+      "likes": 158,
+      "description": "Lossless bidirectional transformation between Kubernetes YAML manifests, JSON configs, and TOML files.",
+      "previewCode": "dev.tool.config-bridge",
+      "tags": [
+        "[AST] YAML 1.2"
+      ],
+      "snippet": "const jsonText = JSON.stringify(yamlAst.parse(manifest), null, 2);"
+    },
+    {
+      "id": 11,
+      "slug": "sql-query-beautifier",
+      "title": "SQL Query Formatter & Explainer",
+      "category": "formatters",
+      "categoryLabel": "Formatters",
+      "icon": "DB",
+      "badge": "PostgreSQL",
+      "badgeType": "indigo",
+      "latencyMs": 3,
+      "likes": 137,
+      "description": "Format complex CTEs, window functions, and joins across PostgreSQL, MySQL, and SQLite dialects.",
+      "previewCode": "dev.tool.sql-pretty",
+      "tags": [
+        "[Dialect] ANSI SQL"
+      ],
+      "snippet": "SELECT id, title FROM tools WHERE likes > 150 ORDER BY likes DESC;"
+    },
+    {
+      "id": 12,
+      "slug": "oauth-pkce-builder",
+      "title": "OAuth 2.0 PKCE Challenge Builder",
+      "category": "security",
+      "categoryLabel": "Security",
+      "icon": "🛡",
+      "badge": "RFC 7636",
+      "badgeType": "success",
+      "latencyMs": 2,
+      "likes": 204,
+      "description": "Generate high-entropy code_verifier strings and S256 Base64URL code_challenge hashes for SPA flows.",
+      "previewCode": "dev.tool.pkce-s256",
+      "tags": [
+        "[Auth] OAuth 2.1"
+      ],
+      "snippet": "const verifier = crypto.getRandomValues(new Uint8Array(32));"
+    },
+    {
+      "id": 13,
+      "slug": "html-entity-encoder",
+      "title": "HTML Entity & Unicode Escaper",
+      "category": "encoders",
+      "categoryLabel": "Encoders",
+      "icon": "&amp;",
+      "badge": "0ms Client",
+      "badgeType": "success",
+      "latencyMs": 1,
+      "likes": 94,
+      "description": "Escape XSS-sensitive HTML characters, named entities, and UTF-16 code points safely in the browser.",
+      "previewCode": "dev.tool.entity-safe",
+      "tags": [
+        "[XSS] W3C Entities"
+      ],
+      "snippet": "const safe = raw.replace(/[&<>\"']/g, (c) => entityMap[c]);"
+    },
+    {
+      "id": 14,
+      "slug": "cron-expression-parser",
+      "title": "Cron Schedule Translator",
+      "category": "converters",
+      "categoryLabel": "Converters",
+      "icon": "⏱",
+      "badge": "Instant",
+      "badgeType": "indigo",
+      "latencyMs": 1,
+      "likes": 162,
+      "description": "Convert 5- and 6-field POSIX/Quartz cron expressions into human-readable schedules and next 10 run timestamps.",
+      "previewCode": "dev.tool.cron-next",
+      "tags": [
+        "[POSIX] UTC / Local"
+      ],
+      "snippet": "const nextRuns = cronEvaluator.next('*/15 * * * *', 5);"
+    },
+    {
+      "id": 15,
+      "slug": "http-header-analyzer",
+      "title": "HTTP Security Headers Inspector",
+      "category": "web",
+      "categoryLabel": "Web",
+      "icon": "CSP",
+      "badge": "Audit",
+      "badgeType": "success",
+      "latencyMs": 3,
+      "likes": 149,
+      "description": "Lint Content-Security-Policy, HSTS, CORS, and Permissions-Policy directives with hardening recommendations.",
+      "previewCode": "dev.tool.csp-linter",
+      "tags": [
+        "[Security] OWASP"
+      ],
+      "snippet": "const directives = cspHeader.split(';').map((d) => d.trim());"
+    },
+    {
+      "title": "dfsd",
+      "slug": "dfs",
+      "category": "encoders",
+      "categoryLabel": "Encoders",
+      "icon": "⚡",
+      "latencyMs": 4,
+      "description": "sfdssdfsdfsdfwefqw",
+      "previewCode": "dev.tool.dfs",
+      "snippet": "// dfsd\nexport function run(input) {\n  return input;\n}",
+      "likes": 1,
+      "badge": "4ms Client",
+      "badgeType": "success",
+      "tags": [
+        "[Community] Verified"
+      ],
+      "id": 16
+    }
+  ]
+}
